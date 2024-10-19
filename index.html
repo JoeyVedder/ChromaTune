@@ -4,10 +4,47 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React + TS</title>
+    <title>Chromatune - Mood Music</title>
+    <link rel="stylesheet" href="src/index.css">
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <header>
+        <h1>Welcome to Chromatune</h1>
+        <nav>
+          <button>Music</button>
+        </nav>
+      </header>
+
+      <div class="container">
+          <!-- Contains links for navigation; could expand with more playlist options or settings -->
+      <aside class="sidebar">
+        <nav>
+          <ul>
+            <!-- Button for creating/viewing new playlists -->
+            <li><button>New</button></li>
+            <!-- Button to view previous playlists or history -->
+            <li><button>Previous</button></li>
+            <!-- Button to change app settings (e.g., preferences or themes) -->
+            <li><button>Settings</button></li>
+          </ul>
+        </nav>
+      </aside>
+
+        <section class="content">
+          <h2>How it works</h2>
+           <!-- Placeholder text explaining app functionality -->
+          <p>Put the mood you're feeling and then you can have your own jam session!</p>
+        </section>
+
+             <!-- Displays fun or useful recommendations. Can be updated with personalized content from the user. -->
+      <aside class="recommendation">
+        <h2>Recommended Music for you</h2>
+        <!-- Placeholder text that could be replaced with actual recommendations or curated playlists -->
+        <p>Lorem Ipsum</p>
+      </aside>
+      </div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
