@@ -8,11 +8,19 @@
   background-color: #242424;
 
   font-synthesis: none;
+  /* Prevents browsers from synthesizing bold or italic styles if they're not included in the font file */
+  
   text-rendering: optimizeLegibility;
+  /* Optimizes text rendering for legibility over speed, can improve appearance of text especially at smaller sizes */
+  
   -webkit-font-smoothing: antialiased;
+  /* WebKit-specific (Chrome, Safari): Applies anti-aliasing to fonts for smoother appearance */
+  
   -moz-osx-font-smoothing: grayscale;
+  /* Mozilla-specific (Firefox on macOS): Applies grayscale anti-aliasing to fonts, can make them appear thinner and sharper */
+  
   -webkit-text-size-adjust: 100%;
-}
+  /* Prevents text from being automatically resized by WebKit browsers on mobile devices */
 
 a {
   font-weight: 500;
