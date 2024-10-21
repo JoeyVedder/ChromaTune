@@ -33,12 +33,12 @@ body {
 }
 
 header {
-  text-align: center; /* Center header text */
+  text-align: center; 
 }
 
 .music-button-container {
   display: flex;
-  justify-content: center; /* Center the button */
+  justify-content: center;
   padding: 20px; /
 }
 
@@ -49,7 +49,7 @@ header {
 }
 
 .sidebar, .recommendation, .content {
-  background-color: #1a1a1a; /* Box background color */
+  background-color: #1a1a1a; 
   border-radius: 8px; /* Rounded corners */
   padding: 20px; 
   width: 30%; /* Set width for sidebar and recommendation */
@@ -58,13 +58,13 @@ header {
 
 .sidebar ul {
   list-style-type: none; /* Remove default list styles */
-  padding: 0; /* Remove default padding */
+  padding: 0; 
 }
 
 .sidebar li {
   margin: 10px 0; /* Space between items */
   border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Line separating items */
-  padding-bottom: 10px; /* Padding below items */
+  padding-bottom: 10px; 
 }
 
 .sidebar li:last-child {
@@ -77,5 +77,5 @@ header {
 }
 
 .recommendation {
-  text-align: center; /* Center the text */
+  text-align: center; 
 }
