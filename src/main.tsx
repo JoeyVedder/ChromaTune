@@ -1,13 +1,12 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import App from "./App.jsx";
-import "bootstrap/dist/css/bootstrap.min.css";
+import App from "./App";
 import "./index.css";
-import Default from "/src/Pages/Default/Default.tsx";
-// import New from "/src/Pages/New/New.tsx";
-// import History from "/src/Pages/History/History.tsx";
-// import Settings from "/src/Pages/Settings/Settings.tsx";
+import Default from "./Pages/Default/Default";
+import New from "./Pages/New/New";
+import History from "./Pages/History/History";
+import Settings from "./Pages/Settings/Settings";
 
 const router = createBrowserRouter([
   {
@@ -34,8 +33,14 @@ const router = createBrowserRouter([
   },
 ]);
 
-createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <RouterProvider router={router} />
-  </StrictMode>
-);
+const rootElement = document.getElementById("root");
+
+if (rootElement) {
+  createRoot(rootElement).render(
+    <StrictMode>
+      <RouterProvider router={router} />
+    </StrictMode>
+  );
+} else {
+  console.error("Root element not found");
+}

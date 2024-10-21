@@ -1,16 +1,16 @@
 import { Outlet } from "react-router-dom";
 import "./App.css";
-import Header from '/src/Components/Header/Header.tsx';
-// import Footer from '/src/Components/Footer/Footer.tsx';
+import Header from './Components/Header/Header.tsx';
+import Nav from './Components/Nav/Nav.tsx';
 
 function App() {
   return (
     <>
       <Header />
+      <Nav />
       <main>
         <Outlet />
       </main>
-      <Footer />
     </>
   );
 }

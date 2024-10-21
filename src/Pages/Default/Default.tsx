@@ -6,6 +6,7 @@ const Default = () => {
                 <h1 className="defaultHeader"></h1>
         <div className="defaultCard">
             <p>
+                How It Works
             </p>
             <p>
             </p>
