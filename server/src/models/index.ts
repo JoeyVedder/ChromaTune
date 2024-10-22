@@ -1,5 +1,5 @@
 import User from './User.js';
-import Mood from './Mood.js';
+import Mood from './mood.js';
 
 // Later you can add other models here like:
 // import Playlist from './Playlist.js';

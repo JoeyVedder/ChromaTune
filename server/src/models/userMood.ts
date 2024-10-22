@@ -1,7 +1,7 @@
 
 import { Model, DataTypes } from 'sequelize';
 import { sequelize } from '../config/database.js';
-import Mood from './Mood.js';
+import Mood from './mood.js';
 
 interface UserMoodAttributes {
     id?: number;
