@@ -2,9 +2,11 @@ import "./Header.css";
 
 function Header() {
   return (
-    <header className="headerTitle">
-      <h1>ChromaTune</h1>
-    </header>
+    <div className="headerContainer">
+      <header>
+        <h1 className="headerTitle">ChromaTune</h1>
+      </header>
+    </div>
   );
 }
 

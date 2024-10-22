@@ -1,0 +1,40 @@
+.defaultContent {
+    margin-left: 100px;
+    margin-top: 150px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 700px;
+}
+
+.defaultCard {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    height: 400px;
+    width: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #242424;
+    color: rgba(255, 255, 255, 0.87);
+    line-height: 1.5;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.87);
+}
+
+.defaultCardText {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    height: 200px;
+    margin: 0px 40px 0px 40px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #242424;
+    color: rgba(255, 255, 255, 0.87);
+    line-height: 1.5;
+    box-shadow: 0 0 10px #353B3C;
+}

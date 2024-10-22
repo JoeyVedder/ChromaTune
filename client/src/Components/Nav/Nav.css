@@ -1,0 +1,105 @@
+.navContainer {
+    width: 150px;
+    position: fixed;
+    top: 0;
+    left: 0px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.navRecord {
+    content: "";
+    display: block;
+    position: absolute;
+    border-radius: 50%;
+    margin-left: -400px;
+    width: 1000px;
+    height: 1000px;
+    background-color: #0d0d0d;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.87);
+}
+
+.navRecordLine1 {
+    content: "";
+    display: block;
+    position: absolute;
+    border-radius: 50%;
+    margin-left: -400px;
+    width: 800px;
+    height: 800px;
+    background-color: #0d0d0d;
+    border-style: solid;
+    border-color: rgba(255, 255, 255, 0.309);}
+
+.navRecordLine2 {
+    content: "";
+    display: block;
+    position: absolute;
+    border-radius: 50%;
+    margin-left: -400px;
+    width: 600px;
+    height: 600px;
+    background-color: #0d0d0d;
+    border-style: solid;
+    border-color: rgba(255, 255, 255, 0.309);
+}
+
+.navRecordLine3 {
+    content: "";
+    display: block;
+    position: absolute;
+    border-radius: 50%;
+    margin-left: -400px;
+    width: 400px;
+    height: 400px;
+    background-color: #ffff;
+    border-style: solid;
+    border-color: rgba(255, 255, 255, 0.309);}
+
+.navList {
+    display: block;
+    position: absolute;
+    left: 50px;
+    padding: 0;
+    margin: 0;
+}
+
+.navItemDefault, .navItemNew, .navItemHistory, .navItemSettings {
+    height: 130px;
+    width: 130px;
+    margin: 5px;
+    background-color: rgb(64, 64, 64);
+    box-shadow: 0 0 10px rgb(255, 255, 255);
+    list-style: none;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 1.5em;
+}
+
+.link {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.87);
+}
+
+.link:hover, .activeLink:hover {
+    text-decoration: underline;
+    color: rgb(255, 0, 0);
+}
+
+.activeLink {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 130px;
+    width: 130px;
+    border-radius: 50%;
+    color: rgb(255, 0, 0);
+    background-color: #ffff;
+}
