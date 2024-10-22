@@ -8,24 +8,28 @@ function Nav() {
 
   // Return the Nav component
   return (
-    <nav className="nav-container">
-      <ul className="nav-list">
-        <li className="nav-item">
+    <nav className="navContainer">
+      <div className="navRecord"></div>
+      <div className="navRecordLine1"></div>
+      <div className="navRecordLine2"></div>
+      <div className="navRecordLine3"></div>
+      <ul className="navList">
+        <li className="navItemDefault">
           <Link to="/" className={currentPage === "/" ? "activeLink" : "link"}>
             Home
           </Link>
         </li>
-        <li className="nav-item">
+        <li className="navItemNew">
           <Link to="/New" className={currentPage === "/New" ? "activeLink" : "link"}>
             New
           </Link>
         </li>
-        <li className="nav-item">
+        <li className="navItemHistory">
           <Link to="/History" className={currentPage === "/History" ? "activeLink" : "link"}>
             History
           </Link>
         </li>
-        <li className="nav-item">
+        <li className="navItemSettings">
           <Link to="/Settings" className={currentPage === "/Settings" ? "activeLink" : "link"}>
             Settings
           </Link>
