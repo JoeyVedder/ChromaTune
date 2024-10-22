@@ -1,4 +1,5 @@
 import User from './User.js';
+import Mood from './Mood.js';
 
 // Later you can add other models here like:
 // import Playlist from './Playlist.js';
@@ -10,5 +11,6 @@ import User from './User.js';
 // Playlist.belongsTo(User);
 
 export {
-    User
+    User,
+    Mood,
 };
