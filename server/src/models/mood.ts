@@ -11,11 +11,11 @@ interface MoodAttributes {
     updatedAt?: Date;
     }
 
-inerface MoodInstance extends Model<MoodAttributes>, MoodAttributes {}
+interface MoodInstance extends Model<MoodAttributes>, MoodAttributes {}
 
 const Mood = sequelize.define<MoodInstance>('Mood', {
     id: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         allowNull: false,
         unique: true,
         validate: {
@@ -29,11 +29,14 @@ const Mood = sequelize.define<MoodInstance>('Mood', {
             len: [1, 50],
         }
 },
-description: {
-    type: DataTypes.STRING,
-    allowNull: true 
-    }
-}
+    description: {
+        type: DataTypes.STRING,
+        allowNull: true 
+        },
+    spotifyCategory: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        }
 }, {
     tableName: 'moods',
     timestamps: true,
