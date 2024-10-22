@@ -1,52 +1,42 @@
 
-import { Table, Column, Model, DataType, HasMany } from 'sequelize-typescript';
-import { UserMood } from './userMood';
+import { Model, DataTypes } from 'sequelize';
+import { sequelize } from '../config/database.js';
 
-@Table({
-    tableName: 'moods',
-    timestamps: true
-})
-
-export class userMood extends Model {
-    @Column ({
-        type: DataType.Integer,
-        primartKey: true,
-        autoIncrement: true
-})
-    id!: number;
-
-    @Column({
-        type: DataType.Integer,
-        allowNull: false
-    })
-    userId!: number;
-
-    //Reference to Mood Model
-    @ForeignKey(() => Mood)
-    @Column({
-        type: DataType.Integer,
-        allowNull: false
-    })
-    moodId!: number;
-
-    // Establish relationship with mood
-    @BelongsTo(() => Mood)
-    mood!: Mood;
-
-    // Store selected playlist ID from Spotify
-    @Column({
-        type: DataType.String,
-        allowNull: true
-    })
-    playlistId?: string;
-}
-
-    export ype UserMoodAttributes = {
-        id: number;
-        userId: number;
-        moodId: number;
-        playlistId?: string;
-        createdAT?: Date;
-        updatedAt?: Date;
+interface MoodAttributes {
+    id: number;
+    name: string;
+    description?: string;
+    spotifyCategory: string;
+    createdAt?: Date;
+    updatedAt?: Date;
     }
-    export type UserMoodCreationAttributes = Omit<UserMoodAttributes, 'id'>;
+
+inerface MoodInstance extends Model<MoodAttributes>, MoodAttributes {}
+
+const Mood = sequelize.define<MoodInstance>('Mood', {
+    id: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true,
+        validate: {
+            len: [1, 50],
+    }
+},
+    name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+            len: [1, 50],
+        }
+},
+description: {
+    type: DataTypes.STRING,
+    allowNull: true 
+    }
+}
+}, {
+    tableName: 'moods',
+    timestamps: true,
+});
+
+export default Mood;
