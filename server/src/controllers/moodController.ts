@@ -19,9 +19,12 @@ export const loguserMood = async (req: Request, res: Response) => {
         if (!mood) {
             return res.json({ message: `Mood with id ${moodId} not found` });
         }
-        const userMood = await userMood.create({ 
+        const newUserMood = await userMood.create({ 
             userId, 
             moodId 
         });
-        res.json(userMood);
+        res.json(newUserMood);
     } catch (error) {
+        res.json({ message: `Error logging user mood: ${error}` });
+    }
+};
