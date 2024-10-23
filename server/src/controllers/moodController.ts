@@ -42,3 +42,16 @@ export const getUserMoodsHistory = async (req: Request, res: Response) => {
         res.json({ message: `Error getting user mood history: ${error}` });
     }
 };
+
+export const getMoodById = async (req: Request, res: Response) => {
+    try {
+        const {id} = req.params;
+        const mood = await Mood.findByPk(id);
+        if (!mood) {
+            return res.json({ message: `Mood with id ${id} not found` });
+        }
+        res.json(mood);
+    } catch (error) {
+        res.json({ message: `Error getting mood by id: ${error}` });
+    }
+};
