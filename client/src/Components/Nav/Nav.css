@@ -19,8 +19,8 @@
     margin-left: -400px;
     width: 1000px;
     height: 1000px;
-    background-color: #0d0d0d;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.87);
+    background-color: var(--record);
+    box-shadow: var(--shadow);
 }
 
 .navRecordLine1 {
@@ -31,9 +31,10 @@
     margin-left: -400px;
     width: 800px;
     height: 800px;
-    background-color: #0d0d0d;
+    background-color: var(--record);
     border-style: solid;
-    border-color: rgba(255, 255, 255, 0.309);}
+    border-color: var(--record-border);
+}
 
 .navRecordLine2 {
     content: "";
@@ -43,9 +44,9 @@
     margin-left: -400px;
     width: 600px;
     height: 600px;
-    background-color: #0d0d0d;
+    background-color: var(--record);
     border-style: solid;
-    border-color: rgba(255, 255, 255, 0.309);
+    border-color: var(--record-border);
 }
 
 .navRecordLine3 {
@@ -58,7 +59,8 @@
     height: 400px;
     background-color: #ffff;
     border-style: solid;
-    border-color: rgba(255, 255, 255, 0.309);}
+    border-color: var(--record-border);
+}
 
 .navList {
     display: block;
@@ -72,8 +74,9 @@
     height: 130px;
     width: 130px;
     margin: 5px;
-    background-color: rgb(64, 64, 64);
-    box-shadow: 0 0 10px rgb(255, 255, 255);
+    background-color: var(--grey);
+    box-shadow: var(--shadow);
+    color: var(--white-text);
     list-style: none;
     margin-bottom: 20px;
     display: flex;
@@ -85,12 +88,14 @@
 
 .link {
     text-decoration: none;
-    color: rgba(255, 255, 255, 0.87);
+    color: var(--shadow);
 }
 
-.link:hover, .activeLink:hover {
+.navItemDefault:hover, .navItemNew:hover, .navItemHistory:hover, .navItemSettings:hover, .activeLink:hover {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 1);
     text-decoration: underline;
-    color: rgb(255, 0, 0);
+    text-decoration-thickness: 2px;
+    text-decoration-color: var(--purple);
 }
 
 .activeLink {
@@ -100,6 +105,8 @@
     height: 130px;
     width: 130px;
     border-radius: 50%;
-    color: rgb(255, 0, 0);
-    background-color: #ffff;
+    color: var(--white-text);
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    text-decoration-color: var(--purple);
 }

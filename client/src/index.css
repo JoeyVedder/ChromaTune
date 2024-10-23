@@ -1,13 +1,18 @@
 :root {
+  --background: #242424;
+  --white-text: rgba(255, 255, 255, 0.87);
+  --record: #0d0d0d;
+  --record-border: rgba(255, 255, 255, 0.309);;
+  --shadow: 0 0 10px rgba(255, 255, 255, 0.87);
+  --purple: #45049a;
+  --grey: rgb(64, 64, 64);
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
 }
 
 * {
   box-sizing: border-box;
   scrollbar-width: thin;
-  scrollbar-color: rgba(255, 255, 255, 0.87) #242424;
+  scrollbar-color: var(--white-text) var(--background);
 }
 
 html, body {
@@ -16,4 +21,5 @@ html, body {
   min-height: 100vh;
   min-width: 320px;
   place-items: center;
+  background-color: var(--background);
 }
