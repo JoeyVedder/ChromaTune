@@ -14,9 +14,14 @@ export const getMoods = async (req: Request, res: Response) => {
 
 export const loguserMood = async (req: Request, res: Response) => {
     try {
-        const { userId =, moodId = } = req.body;
+        const { userId , moodId } = req.body;
         const mood = await Mood.findByPk(moodId);
         if (!mood) {
             return res.json({ message: `Mood with id ${moodId} not found` });
         }
-    }
+        const userMood = await userMood.create({ 
+            userId, 
+            moodId 
+        });
+        res.json(userMood);
+    } catch (error) {
