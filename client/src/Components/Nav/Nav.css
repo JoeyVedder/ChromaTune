@@ -21,6 +21,7 @@
     height: 1000px;
     background-color: var(--record);
     box-shadow: var(--shadow);
+    z-index: -1;
 }
 
 .navRecordLine1 {
@@ -92,10 +93,8 @@
 }
 
 .navItemDefault:hover, .navItemNew:hover, .navItemHistory:hover, .navItemSettings:hover, .activeLink:hover {
-    box-shadow: 0 0 10px rgba(255, 255, 255, 1);
-    text-decoration: underline;
-    text-decoration-thickness: 2px;
-    text-decoration-color: var(--purple);
+    box-shadow: 0 0 30px var(--purple);
+    text-decoration: none;
 }
 
 .activeLink {
@@ -106,7 +105,6 @@
     width: 130px;
     border-radius: 50%;
     color: var(--white-text);
-    text-decoration: underline;
-    text-decoration-thickness: 3px;
-    text-decoration-color: var(--purple);
+    box-shadow: 0 0 30px var(--purple);
+    text-decoration: none;
 }

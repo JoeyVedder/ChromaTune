@@ -11,8 +11,10 @@
     display: flex;
     flex-direction: column;
     text-align: center;
-    height: 400px;
-    width: auto;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    width: 700px;
     margin-top: 50px;
     margin-bottom: 50px;
     margin-left: 50px;
@@ -23,13 +25,13 @@
     color: rgba(255, 255, 255, 0.87);
     line-height: 1.5;
     box-shadow: var(--shadow);
+    z-index: 1;
 }
 
-.newDropdown {
+.newForm {
     position: relative;
     display: inline-block;
     width: 100px;
-    margin: 0px 150px 0px 150px;
 }
 
 .newDropBtn {
@@ -48,6 +50,7 @@
     min-width: 104.94px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+    border-radius: 7px;
 }
 
 .newDropContent a {
@@ -68,4 +71,14 @@
 
 .newDropdown:hover .newDropBtn {
     background-color: #5c1cb0;
+}
+
+.newSubmit {
+    background-color: var(--purple);
+    color: var(--white-text);
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    border-radius: 7px;
+    margin-top: 200px;
 }

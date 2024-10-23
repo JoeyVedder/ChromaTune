@@ -15,11 +15,13 @@
   scrollbar-color: var(--white-text) var(--background);
 }
 
-html, body {
+body {
   margin: 0;
   overflow-x: hidden;
   min-height: 100vh;
-  min-width: 320px;
+  min-width: 100vh;
   place-items: center;
   background-color: var(--background);
+  background-image: radial-gradient(circle at 0% 50%, var(--record), var(--background), var(--background));
+  background-repeat: no-repeat;
 }
