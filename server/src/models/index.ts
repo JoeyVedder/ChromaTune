@@ -1,5 +1,6 @@
 import User from './User.js';
 import Mood from './mood.js';
+import moodRoutes from '../routes/moodRoutes.js';
 
 // Later you can add other models here like:
 // import Playlist from './Playlist.js';
@@ -9,6 +10,8 @@ import Mood from './mood.js';
 // For example:
 // User.hasMany(Playlist);
 // Playlist.belongsTo(User);
+
+app.use(`/api/mood`, moodRoutes);
 
 export {
     User,
