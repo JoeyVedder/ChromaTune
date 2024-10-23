@@ -28,3 +28,17 @@ export const loguserMood = async (req: Request, res: Response) => {
         res.json({ message: `Error logging user mood: ${error}` });
     }
 };
+
+export const getUserMoodsHistory = async (req: Request, res: Response) => {
+    try {
+        const {userId} = req.params;
+        const moodHistory = await userMood.findAll({
+            where: {userId },
+            include: [Mood],
+            order: [['createdAt', 'DESCRIPTION']]
+        });
+        res.json(moodHistory);
+    } catch (error) {
+        res.json({ message: `Error getting user mood history: ${error}` });
+    }
+};
