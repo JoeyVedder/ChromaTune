@@ -1,0 +1,29 @@
+.moodList {
+    list-style-type: none;
+    padding: 0;
+}
+
+.moodItem {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin: 5px 0;
+    border-radius: 5px;
+    background-color: #2c2c2c;
+    color: white;
+}
+
+.deleteButton {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px 10px;
+    transition: background-color 0.3s;
+}
+
+.deleteButton:hover {
+    background-color: #c0392b;
+}

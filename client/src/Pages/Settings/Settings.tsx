@@ -1,60 +1,48 @@
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Settings.css";
 
 const Settings = () => {
-    const [isMoodMotionEnabled, setIsMoodMotionEnabled] = useState(false);
-    const [isDarkModeEnabled, setIsDarkModeEnabled] = useState(false);
+    
+    const [darkMode, setDarkMode] = useState(() => {
+        return localStorage.getItem('darkMode') === 'true';
+    });
 
-    // Handler to toggle Mood Motion
-    const handleMoodMotionToggle = () => {
-        setIsMoodMotionEnabled((prev) => !prev);
+    // Function to toggle dark mode
+    const toggleDarkMode = () => {
+        setDarkMode(prevMode => !prevMode);
     };
 
-    // Handler to toggle light/dark mode
-    const handleDarkModeToggle = () => {
-        setIsDarkModeEnabled((prev) => !prev);
-        // This allows styles to be added to dark mode
-        if (!isDarkModeEnabled) {
-            document.body.classList.add("dark-mode");
+    
+    useEffect(() => {
+        localStorage.setItem('darkMode', darkMode.toString());
+        if (darkMode) {
+            document.body.classList.add('dark-mode');
         } else {
-            document.body.classList.remove("dark-mode");
+            document.body.classList.remove('dark-mode');
         }
-    };
+    }, [darkMode]);
 
     return (
-        <div className={`settingsContent ${isDarkModeEnabled ? "dark" : ""}`}>
+        <div className="settingsContent">
             <h1 className="settingsHeader">Settings</h1>
-            <p className="settingsCard">
-                Your settings will be displayed here.
-            </p>
-            <div className="setting">
+            <div className="settingsCard">
                 <label>
-                    <input
-                        type="checkbox"
-                        checked={isMoodMotionEnabled}
-                        onChange={handleMoodMotionToggle}
-                    />
-                    Mood Motion
-                </label>
-            </div>
-            <div className="setting">
-                <label>
-                    <input
-                        type="checkbox"
-                        checked={isDarkModeEnabled}
-                        onChange={handleDarkModeToggle}
+                    <input 
+                        type="checkbox" 
+                        checked={darkMode} 
+                        onChange={toggleDarkMode} 
                     />
                     Dark Mode
                 </label>
             </div>
-            <p>
-                Mood Motion is {isMoodMotionEnabled ? "enabled" : "disabled"}.
-            </p>
-            <p>
-                Dark Mode is {isDarkModeEnabled ? "enabled" : "disabled"}.
-            </p>
+            
+            <div className="settingsCard">
+                <p>Additional settings will appear here in the future.</p>
+            </div>
         </div>
     );
-};
+}
 
 export default Settings;
+                
+

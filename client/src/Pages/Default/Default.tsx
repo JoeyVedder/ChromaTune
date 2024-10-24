@@ -3,18 +3,23 @@ import "./Default.css";
 const Default = () => {
     return (
         <div className="defaultContent">
-            <h1 className="defaultHeader"></h1>
             <div className="defaultCard">
-                <p><strong>How It Works:</strong></p>
-                <ol>
-                    <li><strong>Select Your Mood:</strong> Choose how you feel today from the dropdown menu. Options include happy, sad, angry, and more.</li>
-                    <li><strong>Get Your Playlist:</strong> Based on your selection, our algorithm curates a personalized playlist that matches your emotional state.</li>
-                    <li><strong>Enjoy the Music:</strong> Sit back and enjoy a handpicked collection of songs designed to resonate with your mood.</li>
-                    <li><strong>Change Anytime:</strong> Feel free to change your mood at any time, and we'll refresh your playlist accordingly!</li>
-                </ol>
-                <p>
-                    Enter your mood from the following dropdown.
-                </p>
+                <h1>What is ChromaTune</h1>
+                <div className="defaultCardText">
+                    <p>
+                        ChromaTune is a web application that generates playlists based on your mood.
+                    </p>
+                    <p>
+                        We use the Spotify API to generate a playlist that is tailored to your mood.
+                    </p>
+                </div>
+            </div>
+            <div className="defaultCard">
+                <h1>How to use ChromaTune</h1>
+                <div className="defaultCardText">
+                    <p>Click on the "New" tab in the nav bar and select a mood from the dropdown.</p>
+                    <p>After you have selected your mood, a generated playlist will appear just for you!</p>
+                </div>
             </div>
         </div>
     );
