@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import { sequelize } from './config/database.js';
 // Remove the User import since we're not using it directly here
 import testRoutes from './routes/testRoutes.js';
+import moodRoutes from './routes/moodRoutes.js';
 
 dotenv.config();
 
@@ -14,6 +15,7 @@ app.use(express.json());
 
 // Use the test routes
 app.use('/api/test', testRoutes);
+app.use('/api/mood', moodRoutes);
 
 const PORT = process.env.PORT || 3000;
 

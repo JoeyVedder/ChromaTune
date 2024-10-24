@@ -10,8 +10,8 @@ import { authenticateToken } from '../middleware/auth.js';
 
 const router = express.Router();
 
-router.get('/moods', getMoods);
-router.get('/moods/:id', getMoodById);
+router.get('/moods', getAllMoods);
+// router.get('/moods/:id', getMoodById); might need to add back later
 
 router.use(authenticateToken);
 router.post(`/log`, loguserMood);
