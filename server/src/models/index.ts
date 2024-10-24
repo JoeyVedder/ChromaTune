@@ -1,6 +1,9 @@
 import User from './User.js';
 import Mood from './mood.js';
 import moodRoutes from '../routes/moodRoutes.js';
+import express from 'express';
+
+const app = express();
 
 // Later you can add other models here like:
 // import Playlist from './Playlist.js';
