@@ -34,8 +34,8 @@ export const getPlaylistTracks = async (playlistId: string) => {
         const data = await SpotifyAPI.clientCredentialsGrant();
         SpotifyAPI.setAccessToken(data.body["access_token"]);
 
-        const playlistTracks = await SpotifyAPI.getPlaylistTracks(playlistId, 
-            return PlaylistData.body;
+        const playlistTracks = await SpotifyAPI.getPlaylistTracks(playlistId); 
+        return playlistTracks.body;
         } catch (error) {
             console.error(`Error in getPlaylistTracks: ${error}`);
             return [];
