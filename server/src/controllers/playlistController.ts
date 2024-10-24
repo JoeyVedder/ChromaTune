@@ -51,3 +51,30 @@ export const moodController = {
                 moodId,
                 spotifyPlaylistId: playlistId
             });
+
+            res.json({ message: 'Playlist saved successfully' });
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ message: 'Error saving playlist' });
+        }
+
+        export const getPlaylistHistory = async (req: Request, res: Response) => {
+            try {
+                const { userId } = req.params;
+        
+                const history = await UserMood.findAll({
+                    where: { 
+                        userId,
+                        spotifyPlaylistId: { 
+                            [Op.ne]: null
+                        } 
+                    },
+                    include: [Mood],
+                    order: [['createdAt', 'DESC']]
+                });
+        
+                res.json(history);
+            } catch (error) {
+                res.status(500).json({ message: 'Error fetching playlist history', error });
+            }
+        };
