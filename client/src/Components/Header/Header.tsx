@@ -4,7 +4,7 @@ function Header() {
   return (
     <div className="headerContainer">
       <header>
-        <h1 className="headerTitle">Welcome to ChromaTune</h1>
+        <h1 className="headerTitle">ChromaTune</h1>
       </header>
     </div>
   );
