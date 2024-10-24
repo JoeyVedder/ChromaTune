@@ -1,8 +1,9 @@
 
 import { Request, Response } from 'express';
-import { Mood } from '../models/index.js';
-import { UserMood } from "../models/userMood.js";
+import Mood from '../models/mood.js';
+import UserMood from "../models/userMood.js";
 import { mock } from 'node:test';
+import { Op } from 'sequelize';
 
         export const moodController = { 
             async function (req: Request, res: Response) {
@@ -40,17 +41,20 @@ import { mock } from 'node:test';
             try {
                 const { userId, moodId, spotifyPlaylistId } = req.body;
                 
-                const userMood: typeof userMood = await userMood.update(
+                const [updatedRows] = await UserMood.update(
                     { spotifyPlaylistId },
                     { 
                         where: { 
                             userId,
                             moodId 
                         },
-                        order: [['createdAt', 'DESC']],
                         limit: 1
                     }
                 );
+
+                if (updatedRows === 0) {
+                    return res.json({ message: 'No mood found for user' });
+                }
 
             res.json({ message: 'Playlist saved successfully' });
         } catch (error) {
@@ -63,11 +67,11 @@ import { mock } from 'node:test';
             try {
                 const { userId } = req.params;
         
-                const history = await userMood.findAll({
+                const history: UserMood[] = await UserMood.findAll({
                     where: { 
                         userId,
                         spotifyPlaylistId: { 
-                            [Op.ne]: null
+                            [Op.ne]: null as unknown as string
                         } 
                     },
                     include: [Mood],
