@@ -78,3 +78,27 @@ export const moodController = {
                 res.status(500).json({ message: 'Error fetching playlist history', error });
             }
         };
+
+        export const getPlaylistDetails = async (req: Request, res: Response) => {
+            try {
+                const { playlistId } = req.params;
+        
+                // TODO: Once we set up Spotify service, we'll get real playlist details
+                // const playlistDetails = await getPlaylistDetails(playlistId);
+        
+                // Temporary response
+                const mockPlaylistDetails = {
+                    id: playlistId,
+                    name: 'Sample Playlist',
+                    description: 'Coming soon...',
+                    tracks: [
+                        { name: 'Track 1', artist: 'Artist 1' },
+                        { name: 'Track 2', artist: 'Artist 2' }
+                    ]
+                };
+        
+                res.json(mockPlaylistDetails);
+            } catch (error) {
+                res.status(500).json({ message: 'Error fetching playlist details', error });
+            }
+        };
