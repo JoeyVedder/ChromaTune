@@ -11,6 +11,13 @@ const New: React.FC = () => {
     }
   };
 
+  const handleButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    if (selectedEmotion) {
+      window.location.hash = selectedEmotion;
+    }
+  };
+
   return (
     <div className="newContent">
       <div className="newCard">
@@ -18,30 +25,31 @@ const New: React.FC = () => {
         <p>Select an emotion to log how you are feeling today.</p>
         <form className="newForm" onSubmit={handleSubmit}>
           <div className="newDropdown">
-          <button
-            type="button"
-            className="newDropBtn"
-            onClick={() => setSelectedEmotion("")}
-          >
-            Dropdown
-          </button>
-          <div className="newDropContent">
-            <a href="#" onClick={() => setSelectedEmotion("optionHappy")}>
-              Happy
-            </a>
-            <a href="#" onClick={() => setSelectedEmotion("optionSad")}>
-              Sad
-            </a>
-            <a href="#" onClick={() => setSelectedEmotion("optionAngry")}>
-              Angry
-            </a>
-            <a href="#" onClick={() => setSelectedEmotion("optionEnergetic")}>
-              Energetic
-            </a>
-            <a href="#" onClick={() => setSelectedEmotion("optionTired")}>
-              Tired
-            </a>
-          </div>
+            <button
+              type="button"
+              id="newDropBtn"
+              className="newDropBtn"
+              onClick={handleButtonClick}
+            >
+              Dropdown
+            </button>
+            <div className="newDropContent">
+              <a href="#" onClick={() => setSelectedEmotion("optionHappy")}>
+                Happy
+              </a>
+              <a href="#" onClick={() => setSelectedEmotion("optionSad")}>
+                Sad
+              </a>
+              <a href="#" onClick={() => setSelectedEmotion("optionAngry")}>
+                Angry
+              </a>
+              <a href="#" onClick={() => setSelectedEmotion("optionEnergetic")}>
+                Energetic
+              </a>
+              <a href="#" onClick={() => setSelectedEmotion("optionTired")}>
+                Tired
+              </a>
+            </div>
           </div>
           <input type="submit" value="Submit" className="newSubmit" />
         </form>
