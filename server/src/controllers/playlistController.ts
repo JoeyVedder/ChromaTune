@@ -1,7 +1,7 @@
 
 import { Request, Response } from 'express';
 import { Mood } from '../models/index.js';
-import userMood from "../models/userMood.js";
+import { UserMood } from "../models/userMood.js";
 import { mock } from 'node:test';
 
         export const moodController = { 

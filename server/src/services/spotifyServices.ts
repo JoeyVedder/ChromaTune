@@ -29,3 +29,17 @@ export const getPlaylistByMood = async (mood: string) => {
     }
 };
 
+export const getPlaylistTracks = async (playlistId: string) => {
+    try {
+        const data = await SpotifyAPI.clientCredentialsGrant();
+        SpotifyAPI.setAccessToken(data.body["access_token"]);
+
+        const playlistTracks = await SpotifyAPI.getPlaylistTracks(playlistId, 
+            return PlaylistData.body;
+        } catch (error) {
+            console.error(`Error in getPlaylistTracks: ${error}`);
+            return [];
+        }
+};
+
+export default SpotifyAPI;
