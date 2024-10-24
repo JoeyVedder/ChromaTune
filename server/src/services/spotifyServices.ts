@@ -11,3 +11,21 @@ const SpotifyAPI = new SpotifyWebApi({
 });
 
 export const getPlaylistByMood = async (mood: string) => {
+    try {
+        const data = await SpotifyAPI.clientCredentialsGrant();
+        SpotifyAPI.setAccessToken(data.body["access_token"]);
+
+        const searchResult = await SpotifyAPI.searchPlaylists(mood, 
+            { 
+                limit: 5,
+                offset: 0
+            });
+        
+        return searchResult.body.playlists?.items || [];
+    } catch (error) {
+        console.error(`Error in getPlaylistByMood: ${error}`);
+        return [];
+        // take a look at this error and see if you can handle it better
+    }
+};
+
