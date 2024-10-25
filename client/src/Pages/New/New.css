@@ -16,7 +16,6 @@
     margin-bottom: 30px; 
 }
 
-
 .newBox {
     border: 2px solid #ccc; 
     border-radius: 10px;
@@ -42,7 +41,7 @@
 }
 
 .dropdownToggle {
-    background-color: #007bff; 
+    background-color: black; 
     color: white;
     padding: 12px;
     border-radius: 5px;
@@ -79,6 +78,31 @@
 .dropdownOption:hover {
     background-color: rgba(255, 255, 255, 0.1); 
     font-weight: 500; 
+}
+
+/* Mood color styles */
+.mood-happy {
+    color: yellow; 
+}
+
+.mood-sad {
+    color: blue; 
+}
+
+.mood-angry {
+    color: red; 
+}
+
+.mood-excited {
+    color: orange; 
+}
+
+.mood-anxious {
+    color: purple; 
+}
+
+.mood-mitchell {
+    color: green; /* Mitchell fav color */
 }
 
 /* Responsive styling */
