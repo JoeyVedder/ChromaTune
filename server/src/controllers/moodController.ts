@@ -16,7 +16,7 @@ export const logUserMood = async (req: Request, res: Response) => {
     try {
         const { userId, moodId, spotifyPlaylistId } = req.body;
         
-        const userMood = await userMood.create({
+        const userMoodInstance = await userMood.create({
             userId,
             moodId,
             spotifyPlaylistId

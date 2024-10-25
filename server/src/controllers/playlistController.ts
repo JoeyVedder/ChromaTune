@@ -63,11 +63,12 @@ import { Op } from 'sequelize';
         }
     };
 
+
         export const getPlaylistHistory = async (req: Request, res: Response) => {
             try {
                 const { userId } = req.params;
         
-                const history: UserMood[] = await UserMood.findAll({
+                const history = await UserMood.findAll({
                     where: { 
                         userId,
                         spotifyPlaylistId: { 
