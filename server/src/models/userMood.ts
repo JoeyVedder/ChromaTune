@@ -7,6 +7,7 @@ interface UserMoodAttributes {
     id?: number;
     userId: number;
     moodId: number;
+    spotifyPlaylistId?: string;
     timestamp?: Date;
     createdAt?: Date;
     updatedAt?: Date;
@@ -35,7 +36,13 @@ const UserMood = sequelize.define<UserMoodInstance>('UserMood', {
             model: 'moods',
             key: 'id',
         }
+
     },
+    spotifyPlaylistId: {        
+        type: DataTypes.STRING,
+        allowNull: true,        
+    },
+    
     timestamp: {
         type: DataTypes.DATE,
         defaultValue: DataTypes.NOW,
@@ -43,6 +50,11 @@ const UserMood = sequelize.define<UserMoodInstance>('UserMood', {
 }, {
     tableName: 'user_moods',
     timestamps: true,
+});
+
+UserMood.belongsTo(Mood, {
+    foreignKey: 'moodId',
+    as: 'mood'
 });
 
 export default UserMood;
