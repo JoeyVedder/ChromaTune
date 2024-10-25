@@ -6,6 +6,12 @@
   --shadow: 0 0 10px rgba(255, 255, 255, 0.87);
   --purple: #45049a;
   --grey: rgb(64, 64, 64);
+  --default-gradient: radial-gradient(circle at 0% 50%, var(--record), var(--background), var(--background));
+  --happy: radial-gradient(circle at 0% 50%, #F2BD2C, var(--background), var(--background));
+  --sad: radial-gradient(circle at 0% 50%, #5DB8FD, var(--background), var(--background));
+  --angry: radial-gradient(circle at 0% 50%, #6E0D10, var(--background), var(--background));
+  --energetic: radial-gradient(circle at 0% 50%, #F16F04, var(--background), var(--background));
+  --tired: radial-gradient(circle at 0% 50%, #6457A6, var(--background), var(--background));
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
@@ -22,6 +28,6 @@ body {
   min-width: 100vh;
   place-items: center;
   background-color: var(--background);
-  background-image: radial-gradient(circle at 0% 50%, var(--record), var(--background), var(--background));
+  background-image: var(--default-gradient);
   background-repeat: no-repeat;
 }
