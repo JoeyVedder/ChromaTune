@@ -52,4 +52,9 @@ const UserMood = sequelize.define<UserMoodInstance>('UserMood', {
     timestamps: true,
 });
 
+UserMood.belongsTo(Mood, {
+    foreignKey: 'moodId',
+    as: 'mood'
+});
+
 export default UserMood;
