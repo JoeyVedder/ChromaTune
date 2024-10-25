@@ -2,7 +2,6 @@
 import { Request, Response } from 'express';
 import Mood from '../models/mood.js';
 import UserMood from "../models/userMood.js";
-import { mock } from 'node:test';
 import { Op } from 'sequelize';
 
         export const moodController = { 

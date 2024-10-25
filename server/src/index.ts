@@ -5,9 +5,9 @@ import { sequelize } from './config/database.js';
 // Remove the User import since we're not using it directly here
 import testRoutes from './routes/testRoutes.js';
 import moodRoutes from './routes/moodRoutes.js';
-import authRoutes from './routes/authRoutes.js';
-import playlistRoutes from './routes/playlistRoutes.js';
-import userRoutes from './routes/userRoutes.js';
+// import authRoutes from './routes/authRoutes.js';
+// import playlistRoutes from './routes/playlistRoutes.js';
+// import userRoutes from './routes/userRoutes.js';
 
 dotenv.config();
 
@@ -18,9 +18,9 @@ app.use(express.json());
 
 app.use(`/api/test`, testRoutes);
 app.use(`/api/mood`, moodRoutes);
-app.use(`/api/auth`, authRoutes);
-app.use(`/api/playlists`, playlistRoutes);
-app.use(`/api/users`, userRoutes);
+// app.use(`/api/auth`, authRoutes);
+// app.use(`/api/playlists`, playlistRoutes);
+// app.use(`/api/users`, userRoutes);
 
 const PORT = process.env.PORT || 3000;
 

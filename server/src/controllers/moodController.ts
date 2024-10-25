@@ -3,7 +3,7 @@ import { Request, Response } from 'express';
 import Mood from '../models/mood.js';
 import userMood from '../models/userMood.js';
 
-export const getAllMoods = async (req: Request, res: Response) => {
+export const getAllMoods = async (_req: Request, res: Response) => {
     try {
         const moods = await Mood.findAll();
         res.json(moods);
@@ -16,12 +16,12 @@ export const logUserMood = async (req: Request, res: Response) => {
     try {
         const { userId, moodId, spotifyPlaylistId } = req.body;
         
-        const userMoodInstance = await userMood.create({
+        const newUserMood = await userMood.create({
             userId,
             moodId,
             spotifyPlaylistId
         });
-        res.json(userMood);
+        res.json(newUserMood); 
     } catch (error) {
         res.json({ message: `Error logging user mood: ${error}` });
     }
