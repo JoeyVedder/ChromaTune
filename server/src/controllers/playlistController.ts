@@ -1,40 +1,42 @@
 
 import { Request, Response } from 'express';
 import Mood from '../models/mood.js';
-import UserMood from "../models/userMood.js";
+import UserMood from '../models/userMood.js';
 import { Op } from 'sequelize';
+import { getPlaylistsByMood, getPlaylistDetails as getSpotifyPlaylistDetails } from '../services/spotifyServices.js';
 
-        export const moodController = { 
-            async function (req: Request, res: Response) {
-                try {
-                    const { moodId } = req.params;
+export const getMoodPlaylists = async (req: Request, res: Response) => {
+    try {
+        const { moodId } = req.params;
 
-                    const mood = await Mood.findByPk(moodId);
-                    if (!mood) {
-                        return res.json({ message: 'Mood not found' });
-                    }
+        const mood = await Mood.findByPk(moodId);
+        if (!mood) {
+            return res.status(404).json({ message: 'Mood not found' });
+        }
 
-                    //temporarily mock playlist data spotify api is integrated
-                    const mockPlaylist = [
-                        {
-                            id: `playlist-${moodId}-1`,
-                            name: `${moodId} Playlist`,
-                            description: `Feeling ${mood.name}? This playlist is made just for you to fit your vibe. Press play and let the music take you away!`,
-                        },
-                        {
-                            id: `playlist-${moodId}-2`,
-                            name: `${moodId} Playlist`,
-                            description: `Feeling ${mood.name}? This playlist is made just for you to fit your vibe. Press play and let the music take you away!`,
-                        }
-                    ]
-
-                    res.json({mockPlaylist});
-                } catch (error) {
-                    console.error(error);
-                    res.json({ message: 'Error getting mood playlist' });
+        try {
+            const playlists = await getPlaylistsByMood(mood.name);
+            res.json(playlists);
+        } catch (spotifyError) {
+            const mockPlaylists = [
+                {
+                    id: `playlist-${moodId}-1`,
+                    name: `${mood.name} Playlist 1`,
+                    description: `Feeling ${mood.name}? This playlist is perfect for your mood!`,
+                },
+                {
+                    id: `playlist-${moodId}-2`,
+                    name: `${mood.name} Playlist 2`,
+                    description: `Another great playlist for when you're feeling ${mood.name}!`,
                 }
-            }
-        };
+            ];
+            res.json(mockPlaylists);
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Error getting mood playlist' });
+    }
+};
 
         export const saveUserPlaylist = async (req: Request, res: Response) => {
             try {
@@ -88,22 +90,22 @@ import { Op } from 'sequelize';
             try {
                 const { playlistId } = req.params;
         
-                // TODO: Once we set up Spotify service, we'll get real playlist details
-                // const playlistDetails = await getPlaylistDetails(playlistId);
-        
-                // Temporary response
-                const mockPlaylistDetails = {
-                    id: playlistId,
-                    name: 'Sample Playlist',
-                    description: 'Coming soon...',
-                    tracks: [
-                        { name: 'Track 1', artist: 'Artist 1' },
-                        { name: 'Track 2', artist: 'Artist 2' }
-                    ]
-                };
-        
-                res.json(mockPlaylistDetails);
+                try {
+                    const playlist = await getSpotifyPlaylistDetails(playlistId);
+                    res.json(playlist);
+                } catch (spotifyError) {
+                    const mockPlaylistDetails = {
+                        id: playlistId,
+                        name: 'Sample Playlist',
+                        description: 'Coming soon...',
+                        tracks: [
+                            { name: 'Track 1', artist: 'Artist 1' },
+                            { name: 'Track 2', artist: 'Artist 2' }
+                        ]
+                    };
+                    res.json(mockPlaylistDetails);
+                }
             } catch (error) {
-                res.json({ message: 'Error fetching playlist details', error });
+                res.status(500).json({ message: 'Error fetching playlist details', error });
             }
         };
