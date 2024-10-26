@@ -138,7 +138,6 @@ export const getPlaylistDetails = async (req: Request, res: Response) => {
         const { playlistId } = req.params;
 
         try {
-            // Try to get actual playlist details from Spotify
             const playlist = await getSpotifyPlaylistDetails(playlistId);
             res.json(playlist);
         } catch (spotifyError) {
@@ -177,7 +176,7 @@ export const getPlaylistDetails = async (req: Request, res: Response) => {
     }
 };
 
-// Test endpoint for Spotify connection
+// endpoint for Spotify connection test
 export const testSpotifyConnection = async (_req: Request, res: Response) => {
     try {
         const playlists = await getPlaylistsByMood('Happy');

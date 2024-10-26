@@ -3,20 +3,23 @@ import {
     getMoodPlaylists, 
     saveUserPlaylist, 
     getPlaylistHistory, 
-    getPlaylistDetails 
+    getPlaylistDetails,
+    testSpotifyConnection  
 } from '../controllers/playlistController.js';
 import { authenticateToken } from '../middleware/auth.js';
 
 const router = express.Router();
 
+// Public routes
 router.get('/mood/:moodId', getMoodPlaylists);
 router.get('/details/:playlistId', getPlaylistDetails);
+
+// Test route for Spotify
+router.get('/test-spotify', testSpotifyConnection); 
+
+// Protected routes
 router.use(authenticateToken);
 router.post('/save', saveUserPlaylist);
 router.get('/history/:userId', getPlaylistHistory);
-
-router.get('/test', (req, res) => {
-    res.json({ message: 'Playlist routes are working!' });
-});
 
 export default router;
