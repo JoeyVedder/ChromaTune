@@ -1,5 +1,4 @@
 
-// src/services/spotifyService.ts
 import SpotifyWebApi from 'spotify-web-api-node';
 import dotenv from 'dotenv';
 
@@ -11,7 +10,6 @@ const spotifyApi = new SpotifyWebApi({
     redirectUri: process.env.SPOTIFY_REDIRECT_URI
 });
 
-// Map moods to Spotify search terms
 const moodSearchTerms = {
     'Happy': 'happy upbeat cheerful',
     'Sad': 'sad melancholy emotional',
@@ -69,12 +67,12 @@ export const getPlaylistDetails = async (playlistId: string) => {
             description: playlist.body.description,
             imageUrl: playlist.body.images[0]?.url,
             tracks: playlist.body.tracks.items.map(item => ({
-                id: item.track.id,
-                name: item.track.name,
-                artist: item.track.artists[0].name,
-                album: item.track.album.name,
-                duration: item.track.duration_ms,
-                previewUrl: item.track.preview_url
+                id: item.track?.id,
+                name: item.track?.name,
+                artist: item.track?.artists[0]?.name,
+                album: item.track?.album?.name,
+                duration: item.track?.duration_ms,
+                previewUrl: item.track?.preview_url
             }))
         };
     } catch (error) {

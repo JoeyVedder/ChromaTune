@@ -6,20 +6,31 @@ import { Op } from 'sequelize';
 import { getPlaylistsByMood, getPlaylistDetails as getSpotifyPlaylistDetails } from '../services/spotifyServices.js';
 import { formatDuration, getColorForMood } from '../utils/spotifyUtils.js';
 
+
+interface UserMoodWithMood {
+    id: number;
+    mood: {
+        name: string;
+    };
+    userId: number;
+    moodId: number;
+    spotifyPlaylistId: string;
+    createdAt: Date;
+}
+
 export const getMoodPlaylists = async (req: Request, res: Response) => {
     try {
         const { moodId } = req.params;
         
-        const mood = await Mood.findByPk(moodId);
-        if (!mood) {
-            return res.status(404).json({ message: 'Mood not found' });
+        if (!moodId) {
+            return res.status(400).json({ message: 'Mood ID is required' });
         }
 
         try {
-            const playlists = await getPlaylistsByMood(mood.name);
+            const playlists = await getPlaylistsByMood(Mood.name);
             const response = {
-                mood: mood.name,
-                color: getColorForMood(mood.name),
+                mood: Mood.name,
+                color: getColorForMood(Mood.name),
                 playlists
             };
             res.json(response);
@@ -27,22 +38,22 @@ export const getMoodPlaylists = async (req: Request, res: Response) => {
             const mockPlaylists = [
                 {
                     id: `playlist-${moodId}-1`,
-                    name: `${mood.name} Playlist 1`,
-                    description: `Feeling ${mood.name}? This playlist is perfect for your mood!`,
+                    name: `${Mood.name} Playlist 1`,
+                    description: `Feeling ${Mood.name}? This playlist is perfect for your mood!`,
                     imageUrl: 'https://placeholder.com/300',
                     tracksTotal: 20
                 },
                 {
                     id: `playlist-${moodId}-2`,
-                    name: `${mood.name} Playlist 2`,
-                    description: `Another great playlist for when you're feeling ${mood.name}!`,
+                    name: `${Mood.name} Playlist 2`,
+                    description: `Another great playlist for when you're feeling ${Mood.name}!`,
                     imageUrl: 'https://placeholder.com/300',
                     tracksTotal: 15
                 }
             ];
             res.json({
-                mood: mood.name,
-                color: getColorForMood(mood.name),
+                mood: Mood.name,
+                color: getColorForMood(Mood.name),
                 playlists: mockPlaylists
             });
         }
@@ -89,20 +100,24 @@ export const saveUserPlaylist = async (req: Request, res: Response) => {
     }
 };
 
+
 export const getPlaylistHistory = async (req: Request, res: Response) => {
     try {
         const { userId } = req.params;
 
-        const history: UserMood[] = await UserMood.findAll({
+        const history = await UserMood.findAll({
             where: { 
                 userId,
                 spotifyPlaylistId: { 
-                    [Op.ne]: null
+                    [Op.ne]: null as any
                 } 
             },
-            include: [Mood],
+            include: [{
+                model: Mood,
+                attributes: ['name']
+            }],
             order: [['createdAt', 'DESC']]
-        });
+        }) as unknown as UserMoodWithMood[];
 
         const formattedHistory = await Promise.all(history.map(async (entry) => {
             try {
@@ -118,7 +133,10 @@ export const getPlaylistHistory = async (req: Request, res: Response) => {
                     id: entry.id,
                     mood: entry.mood.name,
                     date: entry.createdAt,
-                    playlist: { id: entry.spotifyPlaylistId, name: 'Playlist unavailable' }
+                    playlist: { 
+                        id: entry.spotifyPlaylistId, 
+                        name: 'Playlist unavailable' 
+                    }
                 };
             }
         }));
@@ -132,6 +150,53 @@ export const getPlaylistHistory = async (req: Request, res: Response) => {
         });
     }
 };
+
+// export const getPlaylistHistory = async (req: Request, res: Response) => {
+//     try {
+//         const { userId } = req.params;
+
+//         const history = await UserMood.findAll({
+//             where: { 
+//                 userId,
+//                 spotifyPlaylistId: { 
+//                     [Op.ne]: null as any
+//                 } 
+//             },
+//             include: [{
+//                 model: Mood,
+//                 attributes: ['name']
+//             }],
+//             order: [['createdAt', 'DESC']]
+//         }) as unknown as UserMoodWithMood[];
+
+//         const formattedHistory = await Promise.all(history.map(async (entry) => {
+//             try {
+//                 const playlist = await getSpotifyPlaylistDetails(entry.spotifyPlaylistId);
+//                 return {
+//                     id: entry.id,
+//                     mood: entry.mood.name,
+//                     date: entry.createdAt,
+//                     playlist
+//                 };
+//             } catch (error) {
+//                 return {
+//                     id: entry.id,
+//                     mood: entry.mood.name,
+//                     date: entry.createdAt,
+//                     playlist: { id: entry.spotifyPlaylistId, name: 'Playlist unavailable' }
+//                 };
+//             }
+//         }));
+
+//         res.json(formattedHistory);
+//     } catch (error) {
+//         console.error('Error in getPlaylistHistory:', error);
+//         res.status(500).json({ 
+//             message: 'Error fetching playlist history',
+//             error: error instanceof Error ? error.message : 'Unknown error'
+//         });
+//     }
+// };
 
 export const getPlaylistDetails = async (req: Request, res: Response) => {
     try {
