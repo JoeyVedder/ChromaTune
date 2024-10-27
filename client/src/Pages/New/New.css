@@ -8,18 +8,10 @@
 }
 
 .newCard {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    height: 500px;
-    width: 700px;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    margin-left: 50px;
-    margin-right: 50px;
-    padding: 20px;
+    font-size: 1.2rem;
+    color: white; 
+    margin-bottom: 30px; 
+    border: 2px solid #ccc; 
     border-radius: 10px;
     background-color: var(--background);
     color: rgba(255, 255, 255, 0.87);
@@ -34,13 +26,19 @@
     width: 100px;
 }
 
-.newDropBtn {
-    background-color: var(--purple);
-    color: var(--white-text);
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    border-radius: 7px;
+.dropdown {
+    cursor: pointer;
+    width: 200px; 
+}
+
+.dropdownToggle {
+    background-color: black; 
+    color: white;
+    padding: 12px;
+    border-radius: 5px;
+    text-align: center; 
+    font-weight: 500; 
+    transition: background-color 0.3s, transform 0.2s; 
 }
 
 .newDropContent {
@@ -64,9 +62,36 @@
     background-color: rgb(24, 24, 24);
 }
 
-.newDropdown:hover .newDropContent {
-    display: block;
-    justify-content: center;
+/* Mood color styles */
+.mood-happy {
+    color: yellow; 
+}
+
+.mood-sad {
+    color: blue; 
+}
+
+.mood-angry {
+    color: red; 
+}
+
+.mood-excited {
+    color: orange; 
+}
+
+.mood-anxious {
+    color: purple; 
+}
+
+.mood-mitchell {
+    color: green; /* Mitchell fav color */
+}
+
+/* Responsive styling */
+@media (max-width: 600px) {
+    .newHeader {
+        font-size: 1.5rem; 
+    }
 }
 
 .newDropdown:hover .newDropBtn {

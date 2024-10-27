@@ -27,3 +27,28 @@
 .deleteButton:hover {
     background-color: #c0392b;
 }
+
+/* Mood color classes */
+.mood-happy {
+    color: yellow; 
+}
+
+.mood-sad {
+    color: blue; 
+}
+
+.mood-angry {
+    color: red; 
+}
+
+.mood-excited {
+    color: orange; 
+}
+
+.mood-anxious {
+    color: purple; 
+}
+
+.mood-mitchell {
+    color: green; /*mitchells fav color*/
+}

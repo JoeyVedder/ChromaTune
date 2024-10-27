@@ -4,55 +4,69 @@ import "./New.css";
 const New: React.FC = () => {
   const [selectedEmotion, setSelectedEmotion] = useState<string>("");
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (selectedEmotion) {
-      window.location.href = selectedEmotion;
-    }
+  const emotions = ["Happy", "Sad", "Angry", "Excited", "Anxious", "Mitchell"]; // Can add more moods later on if needed
+
+  // Toggle the dropdown menu open/close state
+  const toggleDropdown = () => setIsOpen(!isOpen);
+
+  // Handle the selection of a mood and save it to local storage
+  const handleEmotionSelect = (emotion: string) => {
+    setSelectedEmotion(emotion);
+    setIsOpen(false);
+
+    const date = new Date().toLocaleDateString(); // Get the current date in MM/DD/YYYY format
+    const color = getMoodColor(emotion); // Get the color associated with the selected mood
+
+    // Save the selected mood along with its date and color to local storage
+    const savedMoods = localStorage.getItem("moods");
+    const updatedMoods = savedMoods ? JSON.parse(savedMoods) : [];
+    updatedMoods.push({ mood: emotion, date, color });
+    localStorage.setItem("moods", JSON.stringify(updatedMoods));
   };
 
-  const handleButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    if (selectedEmotion) {
-      window.location.hash = selectedEmotion;
+  // Function to get the color representation of the mood
+  const getMoodColor = (mood: string) => {
+    switch (mood) {
+      case "Happy":
+        return "yellow";
+      case "Sad":
+        return "blue";
+      case "Angry":
+        return "red";
+      case "Excited":
+        return "orange";
+      case "Anxious":
+        return "purple";
+      case "Mitchell":
+        return "green"; // Add a color for Mitchell
+      default:
+        return "white"; 
     }
   };
 
   return (
     <div className="newContent">
-      <div className="newCard">
-        <h1 className="newHeader">How Are You Feeling</h1>
-        <p>Select an emotion to log how you are feeling today.</p>
-        <form className="newForm" onSubmit={handleSubmit}>
-          <div className="newDropdown">
-            <button
-              type="button"
-              id="newDropBtn"
-              className="newDropBtn"
-              onClick={handleButtonClick}
-            >
-              Dropdown
-            </button>
-            <div className="newDropContent">
-              <a href="#" onClick={() => setSelectedEmotion("optionHappy")}>
-                Happy
-              </a>
-              <a href="#" onClick={() => setSelectedEmotion("optionSad")}>
-                Sad
-              </a>
-              <a href="#" onClick={() => setSelectedEmotion("optionAngry")}>
-                Angry
-              </a>
-              <a href="#" onClick={() => setSelectedEmotion("optionEnergetic")}>
-                Energetic
-              </a>
-              <a href="#" onClick={() => setSelectedEmotion("optionTired")}>
-                Tired
-              </a>
-            </div>
+      <h1 className="newHeader"></h1>
+      <div className="newBox">
+        <p className="newCard">Select a Mood for a jam session.</p>
+        <div className="dropdownMenu">
+          <div className="dropdown" onClick={toggleDropdown}>
+            <div className="dropdownToggle">{selectedEmotion}</div>
+            {isOpen && (
+              <div className="dropdownOptions">
+                {emotions.map((emotion) => (
+                  <div
+                    key={emotion}
+                    className="dropdownOption"
+                    onClick={() => handleEmotionSelect(emotion)}
+                  >
+                    {emotion}
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
-          <input type="submit" value="Submit" className="newSubmit" />
-        </form>
+        </div>
       </div>
     </div>
   );
