@@ -3,27 +3,25 @@ import { Request, Response } from 'express';
 import Mood from '../models/mood.js';
 import userMood from '../models/userMood.js';
 
-export const getMoods = async (req: Request, res: Response) => {
+export const getAllMoods = async (_req: Request, res: Response) => {
     try {
         const moods = await Mood.findAll();
         res.json(moods);
     } catch (error) {
-        res.json({ message: `Error getting moods: ${error}` });
+        res.json({ message: 'Error fetching moods', error });
     }
 };
 
-export const loguserMood = async (req: Request, res: Response) => {
+export const logUserMood = async (req: Request, res: Response) => {
     try {
-        const { userId , moodId } = req.body;
-        const mood = await Mood.findByPk(moodId);
-        if (!mood) {
-            return res.json({ message: `Mood with id ${moodId} not found` });
-        }
-        const newUserMood = await userMood.create({ 
-            userId, 
-            moodId 
+        const { userId, moodId, spotifyPlaylistId } = req.body;
+        
+        const newUserMood = await userMood.create({
+            userId,
+            moodId,
+            spotifyPlaylistId
         });
-        res.json(newUserMood);
+        res.json(newUserMood); 
     } catch (error) {
         res.json({ message: `Error logging user mood: ${error}` });
     }
