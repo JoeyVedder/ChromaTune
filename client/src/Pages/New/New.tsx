@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./New.css";
 
-const Emotions: React.FC = () => {
+const New: React.FC = () => {
   const [mood, setMood] = useState<string>("");
   const handleMoodChange = (selectedMood: string) => {
     setMood(selectedMood);
@@ -23,7 +23,7 @@ const Emotions: React.FC = () => {
         return "";
     }
   };
-
+  
   return (
     <div
       id="backgroundArea"
@@ -41,22 +41,22 @@ const Emotions: React.FC = () => {
             className="newDropBtn"
             onClick={() => handleMoodChange("")}
           >
-            Dropdown
+            Select Mood
           </button>
           <div className="newDropContent">
-            <a href="#" onClick={() => handleMoodChange("optionHappy")}>
+            <a href="#Happy" onClick={() => handleMoodChange("optionHappy")}>
               Happy
             </a>
-            <a href="#" onClick={() => handleMoodChange("optionSad")}>
+            <a href="#Sad" onClick={() => handleMoodChange("optionSad")}>
               Sad
             </a>
-            <a href="#" onClick={() => handleMoodChange("optionAngry")}>
+            <a href="#Angry" onClick={() => handleMoodChange("optionAngry")}>
               Angry
             </a>
-            <a href="#" onClick={() => handleMoodChange("optionEnergetic")}>
+            <a href="#Energetic" onClick={() => handleMoodChange("optionEnergetic")}>
               Energetic
             </a>
-            <a href="#" onClick={() => handleMoodChange("optionTired")}>
+            <a href="#Tired" onClick={() => handleMoodChange("optionTired")}>
               Tired
             </a>
           </div>
@@ -69,4 +69,4 @@ const Emotions: React.FC = () => {
   );
 };
 
-export default Emotions;
+export default New;
