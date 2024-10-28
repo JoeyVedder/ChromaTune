@@ -13,7 +13,7 @@
     text-align: center;
     height: auto;
     max-height: 500px;
-    width: auto;
+    width: 700px;
     margin-top: 50px;
     margin-bottom: 50px;
     margin-left: 50px;
@@ -42,4 +42,27 @@
     color: rgba(255, 255, 255, 0.87);
     line-height: 1.5;
     box-shadow: 0 0 10px #353B3C;
+}
+
+/* Responsiveness */
+
+@media screen and (max-width: 1843px) {
+    .defaultCard {
+        width: 500px;
+    }
+}
+
+@media screen and (max-width: 1431px) {
+    body {
+        overflow-y: scroll;
+    }
+
+    .defaultContent {
+        flex-direction: column;
+        margin: 400px 100px 0px 300px;
+    }
+
+    .defaultCard {
+        width: 600px;
+    }
 }

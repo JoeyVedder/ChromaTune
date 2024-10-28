@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./Settings.css";
 
 const Settings = () => {
@@ -24,9 +24,10 @@ const Settings = () => {
 
     return (
         <div className="settingsContent">
-            <h1 className="settingsHeader">Settings</h1>
             <div className="settingsCard">
-                <label>
+            <h1>Settings</h1>
+                <div className="settingsBox">
+                <label className="settingsDark">
                     <input 
                         type="checkbox" 
                         checked={darkMode} 
@@ -34,9 +35,7 @@ const Settings = () => {
                     />
                     Dark Mode
                 </label>
-            </div>
-            
-            <div className="settingsCard">
+                </div>
                 <p>Additional settings will appear here in the future.</p>
             </div>
         </div>
