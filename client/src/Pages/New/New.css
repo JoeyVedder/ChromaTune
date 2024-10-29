@@ -1,6 +1,6 @@
 .newContent {
     text-align: center;
-    padding: 20px; 
+    padding: 20px;
 }
 
 .newHeader {
@@ -11,9 +11,10 @@
 }
 
 .newCard {
+    display: flex;
     font-size: 1.2rem;
     color: white; 
-    margin-bottom: 30px; 
+    margin-bottom: 30px;
 }
 
 
@@ -118,18 +119,14 @@ body.light-mode .newCard {
     color: green; /* Mitchell fav color */
 }
 
-/* Responsive styling */
-@media (max-width: 600px) {
-    .newHeader {
-        font-size: 1.5rem; 
-    }
-
-    .newCard {
-        font-size: 1rem; 
-    }
-}
-
-=======
 body.light-mode .newBox {
     background-color: rgba(255, 255, 255, 0.9); /* Light background for newBox */
+}
+
+/* Responsiveness */
+
+@media (max-width: 1100px) {
+    .newBox {
+        margin-left: 300px;
+    }
 }

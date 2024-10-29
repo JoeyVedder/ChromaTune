@@ -21,7 +21,7 @@
     height: 1000px;
     background-color: var(--record);
     box-shadow: 0 0 10px var(--shadow);
-    z-index: -1;
+    z-index: 1;
 }
 
 .navRecordLine1 {
@@ -35,6 +35,7 @@
     background-color: var(--record);
     border-style: solid;
     border-color: var(--record-border);
+    z-index: 1;
 }
 
 .navRecordLine2 {
@@ -48,6 +49,7 @@
     background-color: var(--record);
     border-style: solid;
     border-color: var(--record-border);
+    z-index: 1;
 }
 
 .navRecordLine3 {
@@ -61,6 +63,7 @@
     background-color: #ffff;
     border-style: solid;
     border-color: var(--record-border);
+    z-index: 1;
 }
 
 body.light-mode .navRecord,
@@ -77,6 +80,7 @@ body.light-mode .navRecordLine3 {
     left: 60px;
     padding: 0;
     margin: 0;
+    z-index: 2;
 }
 
 .navItemDefault, .navItemNew, .navItemHistory, .navItemSettings {

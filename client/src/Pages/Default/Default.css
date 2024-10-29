@@ -16,14 +16,14 @@
     text-align: center;
     height: auto;
     max-height: 500px;
-    width: auto;
+    width: 700px;
     margin-top: 50px;
     margin-bottom: 50px;
     margin-left: 50px;
     margin-right: 50px;
     padding: 20px;
     border-radius: 10px;
-    background-color: var(--background);
+    background-color: var(--background); 
     color: rgba(255, 255, 255, 0.87);
     line-height: 1.5;
     box-shadow: var(--shadow);
@@ -77,9 +77,25 @@ body.light-mode .defaultButton:hover {
     background-color: #004494; 
 }
 
-/* Responsive styling */
-@media (max-width: 600px) {
+/* Responsiveness */
+
+@media screen and (max-width: 1843px) {
     .defaultCard {
-        max-width: 90%; 
+        width: 500px;
+    }
+}
+
+@media screen and (max-width: 1431px) {
+    body {
+        overflow-y: scroll;
+    }
+
+    .defaultContent {
+        flex-direction: column;
+        margin: 100px 100px 0px 300px;
+    }
+
+    .defaultCard {
+        width: 600px;
     }
 }
