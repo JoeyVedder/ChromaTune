@@ -7,7 +7,7 @@
     padding: 50px; 
     font-size: 2rem; 
     margin-bottom: 10px;
-    color: #333; 
+    color: var(--dark-text); /* Use dark text color for light mode */
 }
 
 .newCard {
@@ -16,6 +16,14 @@
     margin-bottom: 30px; 
 }
 
+
+body.light-mode .newCard {
+    color: #333; 
+    background-color: rgba(255, 255, 255, 0.9); 
+    border: 1px solid #ddd; 
+    padding: 15px; 
+    border-radius: 10px;
+}
 
 .newBox {
     border: 2px solid #ccc; 
@@ -28,7 +36,7 @@
 }
 
 .newBox:hover {
-    box-shadow: 0 0 20px rgba(200, 200, 200, 1); /* Bright gray glow on hover */
+    box-shadow: 0 0 20px rgba(200, 200, 200, 1); 
 }
 
 .dropdownMenu {
@@ -81,6 +89,35 @@
     font-weight: 500; 
 }
 
+/* Mood color styles */
+.mood-happy {
+    color: yellow; 
+}
+
+.mood-sad {
+    color: navy; 
+}
+
+.mood-angry {
+    color: red; 
+}
+
+.mood-excited {
+    color: orange; 
+}
+
+.mood-anxious {
+    color: purple; 
+}
+
+.mood-stressed {
+    color: teal;
+}
+
+.mood-mitchell {
+    color: green; /* Mitchell fav color */
+}
+
 /* Responsive styling */
 @media (max-width: 600px) {
     .newHeader {
@@ -92,3 +129,7 @@
     }
 }
 
+=======
+body.light-mode .newBox {
+    background-color: rgba(255, 255, 255, 0.9); /* Light background for newBox */
+}
