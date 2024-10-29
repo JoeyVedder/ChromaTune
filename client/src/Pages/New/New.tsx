@@ -1,4 +1,3 @@
-
 import "./New.css";
 import { useState } from "react";
 
@@ -57,8 +56,24 @@ const New = () => {
             <div className="dropdownToggle">
               {selectedEmotion}
             </div>
+            {isOpen && (
+              <div className="dropdownOptions">
+                {emotions.map((emotion) => (
+                  <div
+                    key={emotion}
+                    className="dropdownOption"
+                    onClick={() => handleEmotionSelect(emotion)}
+                  >
+                    {emotion}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default New;
