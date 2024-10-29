@@ -19,8 +19,14 @@
     margin-left: -400px;
     width: 1000px;
     height: 1000px;
+<<<<<<< HEAD
+    background-color: var(--record);
+    box-shadow: var(--shadow);
+    z-index: -1;
+=======
     background-color: #0d0d0d;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.87);
+    box-shadow: 0 0 24px rgba(255, 255, 255, 0.87);
+>>>>>>> 7caba23 (added dark mode function and mood dropdown)
 }
 
 .navRecordLine1 {
@@ -31,9 +37,16 @@
     margin-left: -400px;
     width: 800px;
     height: 800px;
+<<<<<<< HEAD
+    background-color: var(--record);
+    border-style: solid;
+    border-color: var(--record-border);
+}
+=======
     background-color: #0d0d0d;
     border-style: solid;
     border-color: rgba(255, 255, 255, 0.309);}
+>>>>>>> 7caba23 (added dark mode function and mood dropdown)
 
 .navRecordLine2 {
     content: "";
@@ -43,9 +56,15 @@
     margin-left: -400px;
     width: 600px;
     height: 600px;
+<<<<<<< HEAD
+    background-color: var(--record);
+    border-style: solid;
+    border-color: var(--record-border);
+=======
     background-color: #0d0d0d;
     border-style: solid;
     border-color: rgba(255, 255, 255, 0.309);
+>>>>>>> 7caba23 (added dark mode function and mood dropdown)
 }
 
 .navRecordLine3 {
@@ -58,7 +77,12 @@
     height: 400px;
     background-color: #ffff;
     border-style: solid;
+<<<<<<< HEAD
+    border-color: var(--record-border);
+}
+=======
     border-color: rgba(255, 255, 255, 0.309);}
+>>>>>>> 7caba23 (added dark mode function and mood dropdown)
 
 .navList {
     display: block;
@@ -72,8 +96,14 @@
     height: 130px;
     width: 130px;
     margin: 5px;
+<<<<<<< HEAD
+    background-color: var(--grey);
+    box-shadow: var(--shadow);
+    color: var(--white-text);
+=======
     background-color: rgb(64, 64, 64);
     box-shadow: 0 0 10px rgb(255, 255, 255);
+>>>>>>> 7caba23 (added dark mode function and mood dropdown)
     list-style: none;
     margin-bottom: 20px;
     display: flex;
@@ -85,12 +115,21 @@
 
 .link {
     text-decoration: none;
+<<<<<<< HEAD
+    color: var(--shadow);
+}
+
+.navItemDefault:hover, .navItemNew:hover, .navItemHistory:hover, .navItemSettings:hover, .activeLink:hover {
+    box-shadow: 0 0 30px var(--purple);
+    text-decoration: none;
+=======
     color: rgba(255, 255, 255, 0.87);
 }
 
 .link:hover, .activeLink:hover {
     text-decoration: underline;
     color: rgb(255, 0, 0);
+>>>>>>> 7caba23 (added dark mode function and mood dropdown)
 }
 
 .activeLink {
@@ -100,6 +139,13 @@
     height: 130px;
     width: 130px;
     border-radius: 50%;
+<<<<<<< HEAD
+    color: var(--white-text);
+    box-shadow: 0 0 30px var(--purple);
+    text-decoration: none;
+}
+=======
     color: rgb(255, 0, 0);
     background-color: #ffff;
 }
+>>>>>>> 7caba23 (added dark mode function and mood dropdown)
