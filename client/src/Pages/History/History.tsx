@@ -36,7 +36,7 @@ const History = () => {
                     ))}
                 </ul>
             ) : (
-                <p>No moods recorded yet.</p> // Message when no moods are found
+                <p>No moods recorded yet.</p>
             )}
         </div>
     );
