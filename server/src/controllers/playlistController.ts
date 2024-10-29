@@ -4,7 +4,7 @@ import Mood from '../models/mood.js';
 import UserMood from '../models/userMood.js';
 import { Op } from 'sequelize';
 import { getPlaylistsByMood, getPlaylistDetails as getSpotifyPlaylistDetails } from '../services/spotifyServices.js';
-import { formatDuration, getColorForMood } from '../utils/spotifyUtils.js';
+import { getColorForMood } from '../utils/spotifyUtils.js';
 
 
 interface UserMoodWithMood {
@@ -151,52 +151,6 @@ export const getPlaylistHistory = async (req: Request, res: Response) => {
     }
 };
 
-// export const getPlaylistHistory = async (req: Request, res: Response) => {
-//     try {
-//         const { userId } = req.params;
-
-//         const history = await UserMood.findAll({
-//             where: { 
-//                 userId,
-//                 spotifyPlaylistId: { 
-//                     [Op.ne]: null as any
-//                 } 
-//             },
-//             include: [{
-//                 model: Mood,
-//                 attributes: ['name']
-//             }],
-//             order: [['createdAt', 'DESC']]
-//         }) as unknown as UserMoodWithMood[];
-
-//         const formattedHistory = await Promise.all(history.map(async (entry) => {
-//             try {
-//                 const playlist = await getSpotifyPlaylistDetails(entry.spotifyPlaylistId);
-//                 return {
-//                     id: entry.id,
-//                     mood: entry.mood.name,
-//                     date: entry.createdAt,
-//                     playlist
-//                 };
-//             } catch (error) {
-//                 return {
-//                     id: entry.id,
-//                     mood: entry.mood.name,
-//                     date: entry.createdAt,
-//                     playlist: { id: entry.spotifyPlaylistId, name: 'Playlist unavailable' }
-//                 };
-//             }
-//         }));
-
-//         res.json(formattedHistory);
-//     } catch (error) {
-//         console.error('Error in getPlaylistHistory:', error);
-//         res.status(500).json({ 
-//             message: 'Error fetching playlist history',
-//             error: error instanceof Error ? error.message : 'Unknown error'
-//         });
-//     }
-// };
 
 export const getPlaylistDetails = async (req: Request, res: Response) => {
     try {
