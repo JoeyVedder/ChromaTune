@@ -20,7 +20,7 @@
     width: 1000px;
     height: 1000px;
     background-color: var(--record);
-    box-shadow: 0 0 10px var(--record-border);
+    box-shadow: 0 0 10px var(--shadow);
     z-index: -1;
 }
 

@@ -47,28 +47,6 @@
     box-shadow: 0 0 10px #353B3C;
 }
 
-/* Responsiveness */
-
-@media screen and (max-width: 1843px) {
-    .defaultCard {
-        width: 500px;
-    }
-}
-
-@media screen and (max-width: 1431px) {
-    body {
-        overflow-y: scroll;
-    }
-
-    .defaultContent {
-        flex-direction: column;
-        margin: 400px 100px 0px 300px;
-    }
-
-    .defaultCard {
-        width: 600px;
-    }
-}
 body.light-mode .defaultContent {
     background-color: var(--light-background); 
 }
@@ -116,9 +94,25 @@ body.light-mode .defaultButton:hover {
     background-color: #004494; 
 }
 
-/* Responsive styling */
-@media (max-width: 600px) {
+/* Responsiveness */
+
+@media screen and (max-width: 1843px) {
     .defaultCard {
-        max-width: 90%; 
+        width: 500px;
+    }
+}
+
+@media screen and (max-width: 1431px) {
+    body {
+        overflow-y: scroll;
+    }
+
+    .defaultContent {
+        flex-direction: column;
+        margin: 400px 100px 0px 300px;
+    }
+
+    .defaultCard {
+        width: 600px;
     }
 }

@@ -29,8 +29,7 @@ body {
   background-color: var(--background);
   background-image: var(--default-gradient);
   background-repeat: no-repeat;
-  background-color: var(--background); 
-  color: var(--white-text); 
+  color: var(--white-text);
 }
 
 body.light-mode {

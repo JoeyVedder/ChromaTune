@@ -22,42 +22,24 @@ const Settings = () => {
 
   return (
     <div className="settingsContent">
-      <h1 className="settingsHeader">Settings</h1>
-      <div className="settingsCard">
-        <label>
-          <input 
-            type="checkbox" 
-            checked={lightMode} 
-            onChange={toggleLightMode} 
-          />
-          Light Mode
-        </label>
+          <div className="settingsCard">
+          <h1>Settings</h1>
+              <div className="settingsBox">
+              <label className="settingsDark">
+                  <input 
+                    type="checkbox" 
+                    checked={lightMode} 
+                    onChange={toggleLightMode} 
+                  />
+                  Light Mode
+              </label>
       </div>
-      
       <div className="settingsCard">
         <p>Additional settings will appear here in the future.</p>
       </div>
     </div>
+  </div>
   );
 };
-    return (
-        <div className="settingsContent">
-            <div className="settingsCard">
-            <h1>Settings</h1>
-                <div className="settingsBox">
-                <label className="settingsDark">
-                    <input 
-                        type="checkbox" 
-                        checked={darkMode} 
-                        onChange={toggleDarkMode} 
-                    />
-                    Dark Mode
-                </label>
-                </div>
-                <p>Additional settings will appear here in the future.</p>
-            </div>
-        </div>
-    );
-}
 
 export default Settings;
