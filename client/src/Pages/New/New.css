@@ -16,6 +16,7 @@
     margin-bottom: 30px; 
 }
 
+
 body.light-mode .newCard {
     color: #333; 
     background-color: rgba(255, 255, 255, 0.9); 
@@ -23,7 +24,6 @@ body.light-mode .newCard {
     padding: 15px; 
     border-radius: 10px;
 }
-
 
 .newBox {
     border: 2px solid #ccc; 
@@ -50,7 +50,7 @@ body.light-mode .newCard {
 }
 
 .dropdownToggle {
-    background-color: black; 
+    background-color: #007bff; 
     color: white;
     padding: 12px;
     border-radius: 5px;
@@ -129,6 +129,7 @@ body.light-mode .newCard {
     }
 }
 
+=======
 body.light-mode .newBox {
     background-color: rgba(255, 255, 255, 0.9); /* Light background for newBox */
 }

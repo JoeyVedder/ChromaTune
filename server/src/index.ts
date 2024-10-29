@@ -8,6 +8,7 @@ import moodRoutes from './routes/moodRoutes.js';
 // import authRoutes from './routes/authRoutes.js';
 // import playlistRoutes from './routes/playlistRoutes.js';
 // import userRoutes from './routes/userRoutes.js';
+import playlistRoutes from './routes/playlistRoutes.js';
 
 dotenv.config();
 
@@ -21,6 +22,7 @@ app.use(`/api/mood`, moodRoutes);
 // app.use(`/api/auth`, authRoutes);
 // app.use(`/api/playlists`, playlistRoutes);
 // app.use(`/api/users`, userRoutes);
+app.use('/api/playlist', playlistRoutes);
 
 const PORT = process.env.PORT || 3000;
 
