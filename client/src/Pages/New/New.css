@@ -27,7 +27,7 @@
 }
 
 .newBox:hover {
-    box-shadow: 0 0 20px rgba(200, 200, 200, 1); /* Bright gray glow on hover */
+    box-shadow: 0 0 20px rgba(200, 200, 200, 1); 
 }
 
 .dropdownMenu {
@@ -86,7 +86,7 @@
 }
 
 .mood-sad {
-    color: blue; 
+    color: navy; 
 }
 
 .mood-angry {

@@ -16,7 +16,7 @@ const New = () => {
     setIsOpen(false);
 
     const date = new Date().toLocaleDateString(); // Get the current date in MM/DD/YYYY format
-    const color = getMoodColor(emotion); // Get the color associated with the selected mood
+    const color = getMoodColor(emotion); 
 
     // Save the selected mood along with its date and color to local storage
     const savedMoods = localStorage.getItem("moods");
@@ -31,7 +31,7 @@ const New = () => {
       case "Happy":
         return "yellow";
       case "Sad":
-        return "blue";
+        return "navy";
       case "Angry":
         return "red";
       case "Excited":
@@ -39,9 +39,9 @@ const New = () => {
       case "Anxious":
         return "purple";
       case "Mitchell":
-        return "green"; // Add a color for Mitchell
+        return "skyblue"; 
       default:
-        return "white"; // Default Color 
+        return "white"; 
     }
   };
 

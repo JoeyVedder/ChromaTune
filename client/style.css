@@ -1,21 +1,21 @@
 /* Default styles for larger screens */
 .container {
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px;
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 90%;
+    padding: 10px;
   }
-  
-  @media (max-width: 768px) {
-    .container {
-      width: 90%;
-      padding: 10px;
-    }
+}
+
+/* Styles for screens smaller than 480px (mobile devices) */
+@media (max-width: 480px) {
+  .container {
+    width: 100%;
+    padding: 5px;
   }
-  
-  /* Styles for screens smaller than 480px (mobile devices) */
-  @media (max-width: 480px) {
-    .container {
-      width: 100%;
-      padding: 5px;
-    }
-  }
+}
