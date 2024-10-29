@@ -20,7 +20,7 @@
     width: 1000px;
     height: 1000px;
     background-color: var(--record);
-    box-shadow: 0 0 10px var(--record-border);
+    box-shadow: 0 0 10px var(--shadow);
     z-index: -1;
 }
 
@@ -111,13 +111,6 @@ body.light-mode .navItemSettings {
 .navItemDefault:hover, .navItemNew:hover, .navItemHistory:hover, .navItemSettings:hover, .activeLink:hover {
     box-shadow: 0 0 30px var(--purple);
     text-decoration: none;
-=======
-    color: rgba(255, 255, 255, 0.87);
-}
-
-.link:hover, .activeLink:hover {
-    text-decoration: underline;
-    color: rgb(255, 0, 0);
 }
 
 body.light-mode .navItemDefault:hover,
