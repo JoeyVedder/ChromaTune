@@ -1,10 +1,13 @@
 :root {
-  --background: #242424;
+  --background: #242424; 
   --white-text: rgba(255, 255, 255, 0.87);
+  --dark-text: #333333; 
+  --light-text: #1a1a1a; 
   --record: #0d0d0d;
-  --record-border: rgba(255, 255, 255, 0.309);;
-  --shadow: 0 0 10px rgba(255, 255, 255, 0.87);
+  --record-border: rgba(255, 255, 255, 0.309);
+  --shadow: 0 0 12px rgba(255, 255, 255, 0.87);
   --purple: #45049a;
+  --light-shadow: gray;
   --grey: rgb(64, 64, 64);
   --default-gradient: radial-gradient(circle at 0% 50%, var(--record), var(--background), var(--background));
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -26,4 +29,11 @@ body {
   background-color: var(--background);
   background-image: var(--default-gradient);
   background-repeat: no-repeat;
+  background-color: var(--background); 
+  color: var(--white-text); 
+}
+
+body.light-mode {
+  background-color: white; 
+  color: var(--light-text); 
 }

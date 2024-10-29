@@ -1,16 +1,43 @@
-.moodList {
-    list-style-type: none;
-    padding: 0;
+.historyContent {
+    margin: 80px;
+    background-color: var(--background); /* Dark mode background */
+    color: var(--white-text); /* Dark mode text color */
+}
+
+body.light-mode .historyContent {
+    background-color: rgba(255, 255, 255, 0.9); /* Light mode background */
+    color: var(--dark-text); /* Light mode text color */
+}
+
+.historyHeader {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.historyCard {
+    margin-bottom: 20px;
+}
+
+.moodTable {
+    width: 45%;
+    border-collapse: collapse;
+    margin: 0 auto; 
+    box-shadow: var(--shadow);
+}
+
+.moodTable th, .moodTable td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.moodTable th {
+    background-color: #2c2c2c; 
+    color: white; 
 }
 
 .moodItem {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    border: 1px solid #ddd;
-    margin: 5px 0;
-    border-radius: 5px;
-    background-color: #2c2c2c;
+    background-color: #2c2c2c; 
     color: white;
 }
 
@@ -50,5 +77,15 @@
 }
 
 .mood-mitchell {
-    color: green; /*mitchells fav color*/
+    color: skyblue; /* Mitchell's favorite color */
+}
+
+body.light-mode .moodTable th {
+    background-color: #f0f0f0; /* Light gray for header in light mode */
+    color: var(--dark-text); /* Dark text for header */
+}
+
+body.light-mode .moodItem {
+    background-color: #ffffff; /* White background for mood items */
+    color: var(--dark-text); /* Dark text for mood items */
 }
