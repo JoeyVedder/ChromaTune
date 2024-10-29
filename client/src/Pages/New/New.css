@@ -7,7 +7,7 @@
     padding: 50px; 
     font-size: 2rem; 
     margin-bottom: 10px;
-    color: #333; 
+    color: var(--dark-text); /* Use dark text color for light mode */
 }
 
 .newCard {
@@ -15,6 +15,15 @@
     color: white; 
     margin-bottom: 30px; 
 }
+
+body.light-mode .newCard {
+    color: #333; 
+    background-color: rgba(255, 255, 255, 0.9); 
+    border: 1px solid #ddd; 
+    padding: 15px; 
+    border-radius: 10px;
+}
+
 
 .newBox {
     border: 2px solid #ccc; 
@@ -118,4 +127,8 @@
     .newCard {
         font-size: 1rem; 
     }
+}
+
+body.light-mode .newBox {
+    background-color: rgba(255, 255, 255, 0.9); /* Light background for newBox */
 }

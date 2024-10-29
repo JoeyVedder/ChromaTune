@@ -2,7 +2,7 @@ import "./History.css";
 import { useState, useEffect } from "react";
 
 const History = () => {
-    const [moods, setMoods] = useState<{ mood: string; date: string; color: string }[]>([]); // State to hold mood entries
+    const [moods, setMoods] = useState<{ mood: string; date: string; color: string }[]>([]); 
 
     useEffect(() => {
         const savedMoods = localStorage.getItem("moods"); // Retrieve moods from local storage

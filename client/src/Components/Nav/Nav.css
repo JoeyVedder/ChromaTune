@@ -20,7 +20,7 @@
     width: 1000px;
     height: 1000px;
     background-color: var(--record);
-    box-shadow: var(--shadow);
+    box-shadow: 0 0 10px var(--record-border);
     z-index: -1;
 }
 
@@ -63,10 +63,18 @@
     border-color: var(--record-border);
 }
 
+body.light-mode .navRecord,
+body.light-mode .navRecordLine1,
+body.light-mode .navRecordLine2,
+body.light-mode .navRecordLine3 {
+    border-style: solid;
+    box-shadow: 0 0 100px #2A3439;
+}
+
 .navList {
     display: block;
     position: absolute;
-    left: 50px;
+    left: 60px;
     padding: 0;
     margin: 0;
 }
@@ -87,6 +95,14 @@
     font-size: 1.5em;
 }
 
+body.light-mode .navItemDefault,
+body.light-mode .navItemNew,
+body.light-mode .navItemHistory,
+body.light-mode .navItemSettings {
+    color: black;
+    background-color: var(--white-text);
+}
+
 .link {
     text-decoration: none;
     color: var(--shadow);
@@ -95,6 +111,14 @@
 .navItemDefault:hover, .navItemNew:hover, .navItemHistory:hover, .navItemSettings:hover, .activeLink:hover {
     box-shadow: 0 0 30px var(--purple);
     text-decoration: none;
+}
+
+body.light-mode .navItemDefault:hover,
+body.light-mode .navItemNew:hover,
+body.light-mode .navItemHistory:hover,
+body.light-mode .navItemSettings:hover,
+body.light-mode .activeLink:hover {
+    box-shadow: 0 0 30px salmon;
 }
 
 .activeLink {
@@ -107,4 +131,10 @@
     color: var(--white-text);
     box-shadow: 0 0 30px var(--purple);
     text-decoration: none;
+}
+
+body.light-mode .activeLink {
+    box-shadow: 0 0 30px skyblue;
+    background-color: white;
+    color: var(--light-text);
 }
