@@ -24,8 +24,5 @@ UserMood.belongsTo(Mood);
 export {
     User,
     Mood,
-<<<<<<< HEAD
-=======
     UserMood
->>>>>>> jw-branch
 };
