@@ -20,8 +20,9 @@ const History = () => {
 
     return (
         <div className="historyContent">
+            <div className="historyCard">
             <h1 className="historyHeader">History</h1>
-            <p className="historyCard">
+            <p>
                 Your past entries will be displayed here.
             </p>
             {moods.length > 0 ? (
@@ -48,6 +49,7 @@ const History = () => {
             ) : (
                 <p>No moods recorded yet.</p> 
             )}
+        </div>
         </div>
     );
 };

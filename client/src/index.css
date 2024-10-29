@@ -9,6 +9,7 @@
   --purple: #45049a;
   --light-shadow: gray;
   --grey: rgb(64, 64, 64);
+  --default-gradient: radial-gradient(circle at 0% 50%, var(--record), var(--background), var(--background));
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 

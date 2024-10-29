@@ -1,6 +1,7 @@
 .headerContainer {
     position: fixed;
     left: 0;
+    top: 2em;
     border-radius: 20px;
     width: 1200px;
     height: 100px;
@@ -16,6 +17,19 @@ body.light-mode .headerContainer {
     box-shadow: 0 0 20px darkslategrey;
 }
 
+body.light-mode .headerTitle {
+    color: var(--dark-text);
+}
+
 .headerTitle {
     font-size: 2.5em;
     color: var(--white-text);
+}
+
+/* Responsiveness */
+
+@media screen and (max-width: 1224px) {
+    .headerContainer {
+        width: 80%;
+    }
+}

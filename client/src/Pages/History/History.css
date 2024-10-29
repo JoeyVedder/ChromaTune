@@ -1,5 +1,5 @@
 .historyContent {
-    margin: 80px;
+    margin: 200px 80px 80px 80px;
     background-color: var(--background); /* Dark mode background */
     color: var(--white-text); /* Dark mode text color */
 }
@@ -88,4 +88,17 @@ body.light-mode .moodTable th {
 body.light-mode .moodItem {
     background-color: #ffffff; /* White background for mood items */
     color: var(--dark-text); /* Dark text for mood items */
+}
+
+/* Responsivness */
+
+@media screen and (max-width: 1150px) {
+    .historyCard {
+        margin-left: 150px;
+    }
+
+    .moodTable {
+        margin-left: 170px;
+        width: 80%;
+    }
 }
