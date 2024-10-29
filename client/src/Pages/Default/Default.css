@@ -30,23 +30,6 @@
     z-index: 1;
 }
 
-.defaultCardText {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    height: auto;
-    min-height: 300px;
-    margin: 0px 40px 0px 40px;
-    padding: 20px;
-    border-radius: 10px;
-    background-color: var(--background);
-    text-wrap: balance;
-    font-size: 1.5em;
-    color: rgba(255, 255, 255, 0.87);
-    line-height: 1.5;
-    box-shadow: 0 0 10px #353B3C;
-}
-
 body.light-mode .defaultContent {
     background-color: var(--light-background); 
 }
