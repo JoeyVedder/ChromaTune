@@ -20,6 +20,8 @@
     width: 1000px;
     height: 1000px;
     background-color: var(--record);
+    box-shadow: var(--shadow);
+    z-index: -1;
     box-shadow: 0 0 10px var(--shadow);
     z-index: 1;
 }
@@ -115,8 +117,6 @@ body.light-mode .navItemSettings {
 .navItemDefault:hover, .navItemNew:hover, .navItemHistory:hover, .navItemSettings:hover, .activeLink:hover {
     box-shadow: 0 0 30px var(--purple);
     text-decoration: none;
-}
-
 body.light-mode .navItemDefault:hover,
 body.light-mode .navItemNew:hover,
 body.light-mode .navItemHistory:hover,

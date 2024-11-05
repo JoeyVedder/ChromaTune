@@ -1,8 +1,8 @@
-declare namespace Express { // This is a declaration merging
+declare namespace Express { 
     export interface Request {
         user?: {
             userId: string;
-            // add other user properties you need 
+
         }
     }
 }

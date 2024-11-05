@@ -1,13 +1,16 @@
 .headerContainer {
     position: fixed;
-    left: 0;
-    top: 2em;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%); /* Centers the header by moving it left by half its width */
     border-radius: 20px;
     width: 1200px;
     height: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #242424;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.87);
     box-shadow: var(---shadow);
     z-index: 1;
 }
@@ -26,6 +29,7 @@ body.light-mode .headerTitle {
     color: var(--white-text);
 }
 
+
 /* Responsiveness */
 
 @media screen and (max-width: 1224px) {
@@ -33,3 +37,4 @@ body.light-mode .headerTitle {
         width: 80%;
     }
 }
+

@@ -1,45 +1,41 @@
-
 import { Model, DataTypes } from 'sequelize';
 import { sequelize } from '../config/database.js';
 
-interface MoodAttributes {
-    id: number;
-    name: string;
-    description?: string;
-    spotifyCategory: string;
-    createdAt?: Date;
-    updatedAt?: Date;
-    }
+class UserMood extends Model {
+    public spotifyPlaylistId: string | undefined; 
+    name: any;
+}
 
-interface MoodInstance extends Model<MoodAttributes>, MoodAttributes {}
-
-const Mood = sequelize.define<MoodInstance>('Mood', {
-    id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        unique: true,
-        validate: {
-            len: [1, 50],
-    }
-},
-    name: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-            len: [1, 50],
-        }
-},
-    description: {
-        type: DataTypes.STRING,
-        allowNull: true 
+UserMood.init(
+    {
+        userId: {
+            type: DataTypes.INTEGER,
+            allowNull: false
         },
-    spotifyCategory: {
-        type: DataTypes.STRING,
-        allowNull: false,
+        moodId: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        spotifyPlaylistId: { 
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        createdAt: {
+            type: DataTypes.DATE,
+            allowNull: false,
+            defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
+        },
+        updatedAt: {
+            type: DataTypes.DATE,
+            allowNull: false,
+            defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
         }
-}, {
-    tableName: 'moods',
-    timestamps: true,
-});
+    },
+    {
+        sequelize,
+        modelName: 'UserMood',
+        tableName: 'user_moods'
+    }
+);
 
-export default Mood;
+export default UserMood;
