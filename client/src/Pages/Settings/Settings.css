@@ -1,8 +1,80 @@
 .settingsContent {
-    margin-top: 100px;
+    margin-top: 150px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 700px;
+    background-color: var(--background); 
+    color: var(--white-text); 
+}
+
+.settingsCard label {
+    cursor: pointer;
+}
+
+body.light-mode .settingsContent {
+    background-color: rgba(255, 255, 255, 0.9); 
+    color: var(--dark-text); 
+}
+
+.settingsCard {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    height: 600px;
+    width: 800px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: var(--background);
+    color: rgba(255, 255, 255, 0.87);
+    line-height: 1.5;
+    box-shadow: var(--shadow);
+    z-index: 1;
+}
+
+.settingsBox {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    height: 400px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: var(--background);
+    color: rgba(255, 255, 255, 0.87);
+    line-height: 1.5;
+    box-shadow: 0 0 10px #353B3C;
+    z-index: 1;
+}
+
+.settingsDark {
+    font-size: 2em;
+}
+
+input[type="checkbox"] {
+    margin: 3px 5px 3px 5px;
+    font: inherit;
+    cursor: pointer;
+    color: currentColor;
+    width: 1em;
+    height: 1em;
+    border: 0.15em solid currentColor;
+    border-radius: 0.15em;
+    transform: translateY(.19em);
+}
+
+body.light-mode .settingsCard, body.light-mode .settingsBox {
+    color: #333; 
+    background-color: rgba(255, 255, 255, 0.9); 
+    border: 1px solid #ddd; 
+    padding: 15px; 
+    border-radius: 10px;
 }

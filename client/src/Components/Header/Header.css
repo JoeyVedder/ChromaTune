@@ -11,10 +11,30 @@
     justify-content: center;
     background-color: #242424;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.87);
+    box-shadow: var(---shadow);
     z-index: 1;
+}
+
+body.light-mode .headerContainer {
+    background-color: white; 
+    box-shadow: 0 0 20px darkslategrey;
+}
+
+body.light-mode .headerTitle {
+    color: var(--dark-text);
 }
 
 .headerTitle {
     font-size: 2.5em;
     color: var(--white-text);
 }
+
+
+/* Responsiveness */
+
+@media screen and (max-width: 1224px) {
+    .headerContainer {
+        width: 80%;
+    }
+}
+

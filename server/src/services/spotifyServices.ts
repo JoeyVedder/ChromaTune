@@ -136,4 +136,3 @@ export const getColorForMood = (mood: string): string => {
 };
 
 export default spotifyApi;
-

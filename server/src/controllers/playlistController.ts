@@ -1,4 +1,3 @@
-
 import { Request, Response } from 'express';
 import Mood from '../models/mood.js';
 import UserMood from '../models/userMood.js';
@@ -69,4 +68,3 @@ export const testSpotifyConnection = async (_req: Request, res: Response) => {
         res.status(500).json({ message: 'Spotify connection failed' });
     }
 };
-
