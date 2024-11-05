@@ -1,55 +1,57 @@
 
 import { Request, Response } from 'express';
 import Mood from '../models/mood.js';
-import userMood from '../models/userMood.js';
+import UserMood from '../models/userMood.js';
+import { getPlaylistsByMood } from '../services/spotifyServices.js';
 
 export const getAllMoods = async (_req: Request, res: Response) => {
     try {
         const moods = await Mood.findAll();
         res.json(moods);
     } catch (error) {
-        res.json({ message: 'Error fetching moods', error });
+        console.error('Error fetching moods:', error);
+        res.status(500).json({ message: 'Error fetching moods' });
     }
 };
 
 export const logUserMood = async (req: Request, res: Response) => {
     try {
-        const { userId, moodId, spotifyPlaylistId } = req.body;
-        
-        const newUserMood = await userMood.create({
-            userId,
-            moodId,
-            spotifyPlaylistId
-        });
-        res.json(newUserMood); 
-    } catch (error) {
-        res.json({ message: `Error logging user mood: ${error}` });
-    }
-};
-
-export const getUserMoodsHistory = async (req: Request, res: Response) => {
-    try {
-        const {userId} = req.params;
-        const moodHistory = await userMood.findAll({
-            where: {userId },
-            include: [Mood],
-            order: [['createdAt', 'DESCRIPTION']]
-        });
-        res.json(moodHistory);
-    } catch (error) {
-        res.json({ message: `Error getting user mood history: ${error}` });
-    }
-};
-
-export const getMoodById = async (req: Request, res: Response) => {
-    try {
-        const {id} = req.params;
-        const mood = await Mood.findByPk(id);
+        const { userId, moodId } = req.body;
+        const mood = await Mood.findByPk(moodId);
         if (!mood) {
-            return res.json({ message: `Mood with id ${id} not found` });
+            return res.status(404).json({ message: 'Mood not found' });
         }
-        res.json(mood);
+
+
+        const userMood = await UserMood.create({
+            userId,
+            moodId
+        });
+
+        res.status(201).json(userMood);
     } catch (error) {
-        res.json({ message: `Error getting mood by id: ${error}` });
+        console.error('Error logging mood:', error);
+        res.status(500).json({ message: 'Error logging mood' });
     }
 };
+
+
+getPlaylistsByMood('mood argument');
+
+export const getUserMoodHistory = async (req: Request, res: Response) => {
+    try {
+        const { userId } = req.params;
+
+        const history = await UserMood.findAll({
+            where: { userId },
+            include: [Mood],
+            order: [['createdAt', 'DESC']]
+        });
+
+        res.json(history);
+    } catch (error) {
+        console.error('Error fetching mood history:', error);
+        res.status(500).json({ message: 'Error fetching mood history' });
+    }
+};
+

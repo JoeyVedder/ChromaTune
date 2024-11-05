@@ -10,10 +10,9 @@ export const sequelize = new Sequelize({
     host: process.env.DB_HOST,
     port: parseInt(process.env.DB_PORT || '5433'),
     dialect: 'postgres',
-    logging: false // Set to true to see SQL queries
+    logging: false
 });
 
-// Test the connection
 export const testConnection = async () => {
     try {
         await sequelize.authenticate();

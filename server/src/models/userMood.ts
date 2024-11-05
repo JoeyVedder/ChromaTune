@@ -1,60 +1,45 @@
 
 import { Model, DataTypes } from 'sequelize';
 import { sequelize } from '../config/database.js';
-import Mood from './mood.js';
 
-interface UserMoodAttributes {
-    id?: number;
-    userId: number;
-    moodId: number;
-    spotifyPlaylistId?: string;
-    timestamp?: Date;
-    createdAt?: Date;
-    updatedAt?: Date;
+class UserMood extends Model {
+  public name: string = ''; 
+    spotifyPlaylistId: any;
+
 }
 
-interface UserMoodInstance extends Model<UserMoodAttributes>, UserMoodAttributes {}
-
-const UserMood = sequelize.define<UserMoodInstance>('UserMood', {
+UserMood.init(
+  {
     id: {
-        type: DataTypes.INTEGER,
-        autoIncrement: true,
-        primaryKey: true,
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true,
     },
     userId: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-            model: 'users',
-            key: 'id',
-        }
+      type: DataTypes.INTEGER,
+      allowNull: false,
     },
     moodId: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-            model: 'moods',
-            key: 'id',
-        }
-
+      type: DataTypes.INTEGER,
+      allowNull: false,
     },
-    spotifyPlaylistId: {        
-        type: DataTypes.STRING,
-        allowNull: true,        
+    createdAt: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
     },
-    
-    timestamp: {
-        type: DataTypes.DATE,
-        defaultValue: DataTypes.NOW,
-    }
-}, {
+    updatedAt: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
+    },
+  },
+  {
+    sequelize,
+    modelName: 'UserMood',
     tableName: 'user_moods',
-    timestamps: true,
-});
-
-UserMood.belongsTo(Mood, {
-    foreignKey: 'moodId',
-    as: 'mood'
-});
+  }
+);
 
 export default UserMood;
+
